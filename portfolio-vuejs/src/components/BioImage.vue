@@ -12,17 +12,11 @@
         </v-col>
         <v-col lg="8" cols="12" sm="6" class="order-last order-lg-last">
           <v-container class="d-flex align-center justify-center">
-            <v-img v-if="theme == 'light'"
+            <v-img
               lazy-src="../assets/developer.svg"
-              src="@/assets/developer.svg"
               max-height="90%"
               max-width="90%"
-            ></v-img>
-            <v-img v-else
-              lazy-src="../assets/developer-dark.svg"
-              src="@/assets/developer-dark.svg"
-              max-height="90%"
-              max-width="90%"
+              src="../assets/coding.svg"
             ></v-img>
           </v-container>
         </v-col>
@@ -31,20 +25,18 @@
 </template>
   
   
-<script>
-  export default {
-    name: "HeroComp",
-    data() {
-      return {
-      };
-    },
-    computed: {
-      theme() {
-        return this.$vuetify.theme.currentTheme;
-      },
-    },
-  };
-</script>
+  <script>
+    export default {
+        name: "BioImage",
+        setup() {
+        },
+        data(){
+            return {
+                imageUrl: '../assets/hero-img.jpg'
+            }
+        },
+    }
+  </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@600&display=swap');
@@ -52,6 +44,6 @@
 .intro-text {
     font-family: 'Public Sans', sans-serif;
     font-weight: 300;
-    line-height: normal;
+    color: #3C4858;
 }
 </style>  

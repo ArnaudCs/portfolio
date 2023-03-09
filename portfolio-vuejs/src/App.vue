@@ -20,6 +20,7 @@ import HeroComp from './components/HeroComp.vue';
 import DocumentCompVue from './components/DocumentComp.vue';
 import TimelineExpComp from './components/TimelineExpComp.vue';
 import BioComp from './components/BioComp.vue';
+//import BioImage from './components/BioImage.vue';
 
 export default {
   name: 'App',
@@ -31,6 +32,7 @@ export default {
     DocumentCompVue,
     TimelineExpComp,
     BioComp,
+    //BioImage,
   },
   data() {
     return {

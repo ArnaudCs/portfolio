@@ -45,7 +45,7 @@
 
         <v-card-actions>
             <v-btn 
-                color="deep-purple"
+                color="projectButton"
                 rounded
                 class="white--text"
                 target='_blank'
@@ -67,18 +67,6 @@
 
             }
         },
-        methods: {
-            zoomCard(event) {
-                event.target.querySelector(".card-content").style.transform = "scale(1.05)";
-                event.target.querySelector(".card-content").style.transition = "transform 0.2s ease";
-                event.target.style.zIndex = "1";
-            },
-            unzoomCard(event) {
-                event.target.querySelector(".card-content").style.transform = "scale(1)";
-                event.target.querySelector(".card-content").style.transition = "transform 0.2s ease";
-                event.target.style.zIndex = "0";
-            }
-        }
     }
   </script>
 

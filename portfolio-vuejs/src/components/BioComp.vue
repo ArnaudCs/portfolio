@@ -1,6 +1,6 @@
 <template>
     <v-container class="bioCard">
-        <v-parallax class="bioCard d-flex align-center justify-center" src="../assets/pexels-adrien-olichon-2387793-modified.jpg">
+        <v-parallax class="bioCard d-flex align-center justify-center" src="../assets/palmsModified.jpg">
             <div class="bioContainer">
                 <p class="bioTitle pb-2">{{ title }}</p>
                 <p class="bioText"> {{ body }} </p>
@@ -23,10 +23,8 @@
                 C'est là où les premières bases du code apparaissent, avec le Pascal et le C.", 
                 body1: "Puis en terminale je choisis l'option ISN (informatique et science du numérique) afin de continuer mon parcours, \
                 où les bases du code sont un peu plus poussées et où un projet final est attendu. \
-                Par la suite je choisis donc de m'inscrire en CMI informatique à la faculté des sciences de Montpellier, afin de continuer dans le domaine qui m'intéresse depuis tant d'années. \
-                Après avoir passé les 3 années de licence, je suis maintenant en Master Génie Logiciel à la faculté des sciences de Montpellier.",
-                body2: "Par la suite je choisis donc de m'inscrire en CMI informatique à la faculté des sciences de Montpellier, afin de continuer dans le domaine qui m'intéresse depuis tant d'années. \
-                Après avoir passé les 3 années de licence, je suis maintenant en Master Génie Logiciel à la faculté des sciences de Montpellier.",
+                Par la suite je choisis donc de m'inscrire en CMI informatique à la faculté des sciences de Montpellier, afin de continuer dans le domaine qui m'intéresse depuis tant d'années. ",
+                body2: "Après avoir passé les 3 années de licence, je suis maintenant en Master Génie Logiciel à la faculté des sciences de Montpellier.",
         }),
     }
 </script>

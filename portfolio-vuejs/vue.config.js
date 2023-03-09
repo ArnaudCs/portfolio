@@ -5,7 +5,6 @@ module.exports = defineConfig({
 
   configureWebpack: {
     module: {
-      publicPath: process.env.NODE_ENV === 'production' ? '/portfolio/' : '/',
       rules: [
         {
           test: /\.(pdf)(\?.*)?$/,
