@@ -2,11 +2,11 @@
     <v-container class="pt-5">
       <v-row>
         <v-col lg="4" cols="12" sm="6" class="order-first order-lg-first">
-          <v-container class="text-center">
-            <h2 class="intro-text my-5" style="font-size: 50px;">Etudiant en informatique</h2>
+          <v-container class="text-center" style="vertical-align: center;">
+            <h2 class="intro-text my-5">Etudiant en informatique</h2>
             <h4 class="description my-5">Etudiant en Master Génie Logiciel à l'université de Montpellier.</h4>
             <v-container class="d-flex justify-center">
-              <v-btn color="indigo" class="white--text" rounded><v-icon>mdi-download</v-icon><a href="/files/CV_2023.pdf" style="color: white; text-decoration: none;" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a></v-btn>
+              <v-btn color="indigo" class="white--text cvBtn" rounded><v-icon>mdi-download</v-icon><a href="/files/CV_2023.pdf" style="color: white; text-decoration: none;" class="downloadcv" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a></v-btn>
             </v-container>
           </v-container>
         </v-col>
@@ -15,14 +15,12 @@
             <v-img v-if="theme == 'light'"
               lazy-src="../assets/developer.svg"
               src="@/assets/developer.svg"
-              max-height="90%"
-              max-width="90%"
+              class="img"
             ></v-img>
             <v-img v-else
               lazy-src="../assets/developer-dark.svg"
               src="@/assets/developer-dark.svg"
-              max-height="90%"
-              max-width="90%"
+              class="img"
             ></v-img>
           </v-container>
         </v-col>
@@ -53,5 +51,30 @@
     font-family: 'Public Sans', sans-serif;
     font-weight: 300;
     line-height: normal;
+    font-size: 50px;
+}
+
+.img{
+  max-height: 90%;
+  max-width: 90%;
+}
+
+@media only screen and (min-width: 1750px) {
+    .intro-text{
+      font-size: 4vw;
+    }
+
+    .description{
+      font-size: 1vw;
+    }
+
+    .downloadcv{
+      font-size: 1.5vw;
+    }
+
+    .img{
+      max-height: 80%;
+      max-width: 80%;
+    }
 }
 </style>  

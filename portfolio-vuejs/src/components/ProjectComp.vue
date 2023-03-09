@@ -12,7 +12,7 @@
                 :src="card.src"
                 :languages="card.languages"
                 :link="card.link"
-                class="elevation-10">
+                class="elevation-5 cardProject">
             </CardProject>
         </v-row>
     </v-container>
@@ -49,5 +49,19 @@
     font-family: 'Public Sans', sans-serif;
     font-weight: 900;
     margin-top: 4vh;
+}
+
+.cardProject{
+    transition: ease-in-out 0.5s;
+}
+
+.cardProject:hover{
+    scale: 1.05;
+}
+
+@media only screen and (min-width: 1750px) {
+    #projects{
+        width: 80%;
+    }
 }
 </style>  

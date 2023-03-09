@@ -99,4 +99,18 @@
         font-style: italic;
     }
 }
+
+@media only screen and (min-width: 1750px) {
+    .bioText{
+        font-size: 2.7vh;
+        font-weight: 300;
+        margin-top: 2vh;
+    }
+
+    .bioTitle{
+        font-size: 5vh;
+        font-weight: 300;
+        font-style: italic;
+    }
+}
 </style>  

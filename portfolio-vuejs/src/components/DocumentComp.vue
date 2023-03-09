@@ -1,66 +1,68 @@
 <template>
-    <v-container id="documents" class="elevation-10">
-        <v-container class="d-flex align-center justify-center">
-            <div class="text-center">
-                <h1>Documents</h1>
-                <h3 class="pt-2 docText">Ici sont disponibles tous les documents numérisées utiles et obtenus lors de mon parcours</h3>
-            </div>
-        </v-container>
-        <v-container class="d-flex align-center justify-center docContainer">
-            <v-row justify="center">
-                <v-dialog
-                v-model="dialog"
-                width="1000"
-                >
-                <template v-slot:activator="{ props }">
-                    <v-btn
-                    color="indigo"
-                    v-bind="props"
-                    rounded
+    <div class="d-flex align-center justify-center">
+        <v-card id="documents" class="elevation-10">
+            <v-container class="d-flex align-center justify-center docContainer">
+                <div class="text-center">
+                    <h1>Documents</h1>
+                    <h3 class="pt-2 docText">Ici sont disponibles tous les documents numérisées utiles et obtenus lors de mon parcours</h3>
+                </div>
+            </v-container>
+            <v-container class="d-flex align-center justify-center docContainer">
+                <v-row justify="center">
+                    <v-dialog
+                    v-model="dialog"
+                    width="1000"
                     >
-                    Voir les documents
-                    </v-btn>
-                </template>
-                <v-card>
-                    <v-card-title>
-                    <span class="dialogText">Téléchargement des documents</span>
-                    </v-card-title>
-                    <v-card-text>
-                        <v-card v-for="docs in documentsInfos" :key="docs" elevation="8"
-                            class="mx-auto my-4 cardDoc"
-                            width="96%"
-                            prepend-icon="mdi-file">
-                            <template v-slot:title>
-                                {{ docs.title }}
-                            </template>
+                    <template v-slot:activator="{ props }">
+                        <v-btn
+                        color="indigo"
+                        v-bind="props"
+                        rounded
+                        >
+                        Voir les documents
+                        </v-btn>
+                    </template>
+                    <v-card>
+                        <v-card-title>
+                        <span class="dialogText">Téléchargement des documents</span>
+                        </v-card-title>
+                        <v-card-text>
+                            <v-card v-for="docs in documentsInfos" :key="docs" elevation="8"
+                                class="mx-auto my-4 cardDoc"
+                                width="96%"
+                                prepend-icon="mdi-file">
+                                <template v-slot:title>
+                                    {{ docs.title }}
+                                </template>
 
-                            <v-card-text>
-                                {{ docs.body }}
-                            </v-card-text>
-                            <v-card-actions>
-                                <v-btn color="primary" rounded="pill"><a :href="docs.pdf_url" :download="docs.pdfName" class="anchorDownload">Télécharger</a></v-btn>
-                            </v-card-actions>
-                        </v-card>
-                    </v-card-text>
-                    <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn
-                        color="primary"
-                        variant="text"
-                        @click="dialog = false"
-                    >
-                    <v-tooltip
-                        activator="parent"
-                        location="top"
-                    >J'ai ce qu'il me faut</v-tooltip>
-                        Fermer
-                    </v-btn>
-                    </v-card-actions>
-                </v-card>
-                </v-dialog>
-            </v-row>
-        </v-container>
-    </v-container>
+                                <v-card-text>
+                                    {{ docs.body }}
+                                </v-card-text>
+                                <v-card-actions>
+                                    <v-btn color="primary" rounded="pill"><a :href="docs.pdf_url" :download="docs.pdfName" class="anchorDownload">Télécharger</a></v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        </v-card-text>
+                        <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            color="primary"
+                            variant="text"
+                            @click="dialog = false"
+                        >
+                        <v-tooltip
+                            activator="parent"
+                            location="top"
+                        >J'ai ce qu'il me faut</v-tooltip>
+                            Fermer
+                        </v-btn>
+                        </v-card-actions>
+                    </v-card>
+                    </v-dialog>
+                </v-row>
+            </v-container>
+        </v-card>
+    </div>
 </template>
 
 <script>
@@ -114,7 +116,9 @@ export default {
 
 #documents{
     margin-top: 3vh;
+    width: 80%;
     border-radius: 2em;
+    padding: 1em;
 }
 .cardDoc{
     border-radius: 2em;
@@ -152,5 +156,11 @@ export default {
 .anchorDownload, a:link{
     color: primary;
     text-decoration: none;
+}
+
+@media only screen and (min-width: 1750px) {
+    .docText{
+        font-size: 1.2vw;
+    }
 }
 </style>  

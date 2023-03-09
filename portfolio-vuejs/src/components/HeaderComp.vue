@@ -17,7 +17,7 @@
     <template v-if="windowWidth > 945">
       <v-list class="d-flex align-center">
         <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link>
-          <v-list-item-title>{{menu.title}}</v-list-item-title>
+          <v-list-item-title class="menus">{{menu.title}}</v-list-item-title>
         </v-list-item>
         <v-list-item>
           <v-switch v-model="ex11"
@@ -133,6 +133,17 @@
     font-size: 1.1em;
     font-weight: 700;
     margin-left: 5vw;
+  }
+}
+
+@media only screen and (min-width: 1750px) {
+  .logo{
+    font-size: 1.8vw;
+    font-weight: 700;
+    margin-left: 5vw;
+  }
+  .menus{
+    font-size: 1.1vw;
   }
 }
 </style>  
