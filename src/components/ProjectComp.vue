@@ -30,12 +30,12 @@
         data() {
             return {
             cards: [
-            { title: 'Suivi Achat Revente', body: 'Site web de gestion d\'achat revente avec suivi', src: "https://i.ibb.co/3zLYV2k/notebook-mockup-on-desk.png", languages: ['HTML', 'CSS', 'BootStrap', 'SQL', 'JS', 'AJAX'], link: "https://cashboard.arnaudcs.repl.co/index.php"},
+                { title: 'Suivi Achat Revente', body: 'Site web de gestion d\'achat revente avec suivi', src: "https://i.ibb.co/3zLYV2k/notebook-mockup-on-desk.png", languages: ['HTML', 'CSS', 'BootStrap', 'SQL', 'JS', 'AJAX'], link: "https://cashboard.arnaudcs.repl.co/index.php"},
                 { title: 'Analyseur Mail', body: 'Analyseur avec statistique sur corpus de mails', src: "https://i.ibb.co/tBLHVXS/Analyseur-De-Mail.png", languages: ['Python'], link: "https://github.com/Gaiko19/INTER2-HUT"},
                 { title: 'Jeux IOS Morpion', body: 'Jeu du morpion avec IA (simple)', src: "https://i.ibb.co/KmMsTk4/Morpion-Mockup.png", languages: ['Swift'], link:"https://github.com/ArnaudCs/Projects/tree/main/TickityTacTow-main"},
+                { title: 'Réseau de Machine', body: 'Calcul de la coloration d\'un graphe', src: "https://i.ibb.co/Tqfjwk0/Ma-formation.png", languages: ['C', 'C++'], link: "https://github.com/ArnaudCs/Coloration-Reseau-C"},
                 { title: 'Calculatrice React', body: 'Caclulatrice avec mode Dark Theme en React Native', src: "https://i.ibb.co/GJx6LZn/two-standing-smartphones-mockup.png", languages: ['React Native'], link: "https://github.com/ArnaudCs/Projects/tree/main/React_Calculatrice"},
                 { title: 'Tasker React', body: 'Application de tâches (gestionnaire) en React Native', src: "https://i.ibb.co/tDScLKQ/Tasker-Mockup.png", languages: ['React Native'], link: "https://github.com/ArnaudCs/Projects/tree/main/React_to_do_list"},
-                { title: 'Suivi Achat Revente', body: 'Site web de gestion d\'achat revente avec suivi', src: "https://i.ibb.co/3zLYV2k/notebook-mockup-on-desk.png", languages: ['HTML', 'CSS', 'BootStrap', 'SQL', 'JS', 'AJAX'], link: "https://cashboard.arnaudcs.repl.co/index.php"},
             ],
             };
         },

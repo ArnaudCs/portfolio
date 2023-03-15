@@ -30,7 +30,7 @@
                             <v-card v-for="docs in documentsInfos" :key="docs" elevation="8"
                                 class="mx-auto my-4 cardDoc"
                                 width="96%"
-                                prepend-icon="mdi-file">
+                                :prepend-avatar="docs.logoSrc">
                                 <template v-slot:title>
                                     {{ docs.title }}
                                 </template>
@@ -78,28 +78,28 @@ export default {
             dialog: false,
             documentsInfos: [
                 {title: 'TOEIC', 
-                    body: 'Le Certificat Voltaire est un examen créé en 2010 par le Projet Voltaire. Il est censé permettre d\'attester de son niveau en orthographe et en expression française.', 
-                    pdf_url: "", 
-                    pdfName: "VOLTAIRE_COSSU_ARNAUD.pdf", 
-                    logoSrc: "https://i.ibb.co/mqY8vgh/logocertifvoltaire.png"},
+                    body: 'Les tests Test of English for International Communication sont des certifications standardisées permettant d\'évaluer le niveau d\'anglais des locuteurs non anglophones à l\'écrit et à l\'oral.', 
+                    pdf_url: "/files/TOEIC_COSSU_ARNAUD_2023.pdf", 
+                    pdfName: "TOEIC_COSSU_ARNAUD.pdf", 
+                    logoSrc: "https://i.ibb.co/FWgbW4G/logo-TOEIC.png"},
                 {title: 'LanguageCert', 
                     body: 'LanguageCert propose des examens certifiants, alignés sur le CECRL et réglementés officiellement de façon externe par Ofqual, l’organisme gouvernemental de règlementation des diplômes en Angleterre.', 
                     pdf_url: "/files/LANGUAGECERT_COSSU_ARNAUD.pdf",
                     pdfName: "LANGUAGECERT_COSSU_ARNAUD.pdf", 
-                    logoSrc: "https://i.ibb.co/CvCRrcR/languagecert-logo.png"},
+                    logoSrc: "https://i.ibb.co/60kPNtJ/logo-Lang-Cert.png"},
                 {title: 'Diplôme du PIX', 
                     body: 'PIX est un outil permettant d\'évaluer en ligne les compétences numériques des élèves, des étudiants et des stagiaires en formation continue.', 
                     pdf_url: "/files/PIX_COSSU_ARNAUD.pdf",
                     pdfName: "PIX_COSSU_ARNAUD.pdf", 
-                    logoSrc: "https://i.ibb.co/LppmPFH/t-l-chargement.png"},
+                    logoSrc: "https://i.ibb.co/gv429K6/logPIX.png"},
                 {title: 'DeutscheSprache Diplom', 
                     body: 'La certification d’allemand pour l’obtention du Deutsches Sprachdiplom, est un examen qui permet d’attester un niveau de compétence reconnu dans tout l’espace européen.', 
                     pdf_url: "/files/SPRACHEDIPLOM_COSSU_ARNAUD.pdf",
                     pdfName: "SPRACHEDIPLOM_COSSU_ARNAUD.pdf", 
-                    logoSrc: "https://i.ibb.co/Wt2Rryh/deutsches-sprachdiplom-bild.jpg"},
+                    logoSrc: "https://i.ibb.co/Pm7q7rs/logo-Sprache.png"},
                 {title: 'Certification Voltaire', 
                     body: 'Le Certificat Voltaire est un examen créé en 2010 par le Projet Voltaire. Il est censé permettre d\'attester de son niveau en orthographe et en expression française.', 
-                    pdf_url: "", 
+                    pdf_url: "/files/VOLTAIRE_COSSU_ARNAUD.pdf", 
                     pdfName: "VOLTAIRE_COSSU_ARNAUD.pdf", 
                     logoSrc: "https://i.ibb.co/mqY8vgh/logocertifvoltaire.png"},
                 ],
