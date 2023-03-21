@@ -8,14 +8,15 @@
   </v-navigation-drawer>
   <v-app-bar
     app 
-    dark
+    color="transparent"
     elevation="0"
-    elevate-on-scroll>
+    elevate-on-scroll
+    class="appBar">
   
     <v-toolbar-title v-if="windowWidth> 350" class="logo">Arnaud Cossu</v-toolbar-title>
     <v-spacer></v-spacer>
     <template v-if="windowWidth > 945">
-      <v-list class="d-flex align-center">
+      <v-list color="transparent" class="d-flex align-center">
         <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link>
           <v-list-item-title class="menus">{{menu.title}}</v-list-item-title>
         </v-list-item>
@@ -33,7 +34,7 @@
         </v-list-item>
       </v-list>
     </template>
-    <div id="container" v-if="windowWidth <= 945" style="display: flex; justify-content: flex-end;">
+    <div color="transparent" id="container" v-if="windowWidth <= 945" style="display: flex; justify-content: flex-end;">
       <v-switch
         false-icon="mdi-white-balance-sunny"
         true-icon="mdi-weather-night"
@@ -124,6 +125,11 @@
   font-size: 1.2rem;
 }
 
+.appBar{
+  position: fixed;
+  z-index: 9999;
+}
+
 .logo{
   margin-left: 5vw;
 }
@@ -138,9 +144,9 @@
 
 @media only screen and (min-width: 1750px) {
   .logo{
-    font-size: 1.8vw;
-    font-weight: 700;
-    margin-left: 5vw;
+    font-size: 1.2vw;
+    font-weight: 500;
+    margin-left: 2vw;
   }
   .menus{
     font-size: 1.1vw;

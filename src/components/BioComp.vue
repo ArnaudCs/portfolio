@@ -1,15 +1,13 @@
 <template>
-    <v-container class="bioCard">
-        <v-parallax class="bioCard d-flex align-center justify-center" src="../assets/palmsModified.jpg">
-            <div class="bioContainer">
-                <p class="bioTitle pb-2">{{ title }}</p>
-                <p class="bioText"> {{ body }} </p>
-                <p class="bioText"> {{ body1 }} </p>
-                <p class="bioText"> {{ body2 }} </p>
-            </div>
-            
-        </v-parallax>
-    </v-container>
+    <v-parallax class="bioCard d-flex align-center justify-center" src="../assets/palmsModified.jpg">
+        <div class="bioContainer">
+            <p class="bioTitle pb-2">{{ title }}</p>
+            <p class="bioText"> {{ body }} </p>
+            <p class="bioText"> {{ body1 }} </p>
+            <p class="bioText"> {{ body2 }} </p>
+        </div>
+        
+    </v-parallax>
 </template>
   
 <script>
@@ -32,8 +30,14 @@
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@600&display=swap');
 .bioCard{
-    border-radius: 2em;
     max-height: 65vh;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    margin: 0 auto;
+    z-index: 1;
 }
 
 .bioText{
