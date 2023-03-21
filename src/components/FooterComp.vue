@@ -43,7 +43,7 @@
     
         data: () => ({
           socialLinks: [
-            {icon: 'mdi-email', link: 'mailto:arnaud.cossu@gmail.com'},
+            {icon: 'mdi-email', link: 'mailto:arnaud.cossu@gmail.com?subject=Message Site'},
             {icon: 'mdi-linkedin', link: 'https://www.linkedin.com/in/arnaud-c-65357215a/'},
             {icon: 'mdi-github', link: 'https://github.com/ArnaudCs'},
             {icon: 'mdi-gitlab', link: 'https://gitlab.etu.umontpellier.fr/e20190000683'},
