@@ -1,5 +1,5 @@
 <template>
-  <v-app id="home">
+  <v-app>
     <HeaderComp />
     <v-main>
       <BioComp class="intro"/>
@@ -52,8 +52,4 @@ export default {
 html{
   scroll-behavior: smooth;
 }
-
-.intro{
-}
-
 </style>

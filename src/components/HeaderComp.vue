@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" temporary class="drawer" style="opacity: 0.9; padding-top: 5vh; padding-left: 2vh;">
+  <v-navigation-drawer color="primary" v-model="drawer" temporary class="drawer" style="opacity: 0.9; padding-top: 5vh; padding-left: 2vh;">
     <v-list nav v-for="(menu, index) in menus" :key="index">
       <v-list-item @click="drawer = null" :prepend-icon="menu.icon" :href=menu.link>
         <v-list-item-title class="mobileLinks" @click="drawer = null">{{menu.title}}</v-list-item-title>
@@ -10,19 +10,20 @@
     app
     elevation="0"
     elevate-on-scroll
+    color="secondary"
     class="appBar">
   
     <v-toolbar-title v-if="windowWidth> 350" class="logo">Arnaud Cossu</v-toolbar-title>
     <v-spacer></v-spacer>
     <template v-if="windowWidth > 945">
-      <v-list color="red" class="d-flex align-center">
+      <v-list class="d-flex align-center my-list" style="background-color: secondary;">
         <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link>
           <v-list-item-title class="menus">{{menu.title}}</v-list-item-title>
         </v-list-item>
         <v-list-item>
           <v-switch v-model="ex11"
-              false-icon="mdi-white-balance-sunny"
-              true-icon="mdi-weather-night"
+              true-icon="mdi-white-balance-sunny"
+              false-icon="mdi-weather-night"
               value="grey"
               hide-details
               class="ml-2"
@@ -35,7 +36,7 @@
     </template>
     <div id="container" v-if="windowWidth <= 945" style="display: flex; justify-content: flex-end;">
       <v-switch
-        false-icon="mdi-white-balance-sunny"
+        false-icon="mdi-white-balance"
         true-icon="mdi-weather-night"
         value="grey"
         hide-details
@@ -46,7 +47,7 @@
     <v-menu v-if="windowWidth <= 960" right>
       <template v-slot:activator="{ on }">
         <v-btn color="primary" v-bind="on" @click.stop="drawer = !drawer">
-          <v-icon>mdi-menu</v-icon>
+          <v-icon color="hamburger">mdi-menu</v-icon>
         </v-btn>
       </template>
       <v-list>
@@ -129,6 +130,11 @@
 
 .logo{
   margin-left: 5vw;
+}
+
+.my-list {
+  background-color: var(--v-card-background); /* utilise la variable de thème pour la couleur de fond */
+  color: var(--v-text-primary-on-background); /* utilise la variable de thème pour la couleur du texte */
 }
 
 @media only screen and (max-device-width : 450px) {

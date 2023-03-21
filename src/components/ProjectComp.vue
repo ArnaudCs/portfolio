@@ -12,7 +12,8 @@
                 :src="card.src"
                 :languages="card.languages"
                 :link="card.link"
-                class="elevation-5 cardProject">
+                class="elevation-5 cardProject"
+                color="secondary">
             </CardProject>
         </v-row>
     </v-container>

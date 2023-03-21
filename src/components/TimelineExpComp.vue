@@ -11,7 +11,7 @@
         <template v-slot:icon>
           <v-avatar :image="exp.logoSrc" :size=exp.size ></v-avatar>
         </template>
-        <v-card class="elevation-2">
+        <v-card class="elevation-2" color="secondary">
           <v-card-title class="text-h5">
             {{ exp.entreprise }}
           </v-card-title>
@@ -30,7 +30,7 @@
         <template v-slot:icon>
           <v-avatar :image="exp.logoSrc" :size=exp.size ></v-avatar>
         </template>
-        <v-card class="elevation-2">
+        <v-card class="elevation-2" color="secondary">
           <v-card-title class="text-h5">
             {{ exp.entreprise }}
           </v-card-title>

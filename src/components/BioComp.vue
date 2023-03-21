@@ -4,8 +4,8 @@
             <h2 class="bioTitle my-5">Etudiant en informatique</h2>
             <h4 class="bioText my-5">Etudiant en Master Génie Logiciel à l'université de Montpellier.</h4>
             <v-container class="d-flex justify-center align-center">
-                <v-btn color="indigo" class="white--text cvBtn" rounded>
-                <v-icon>mdi-download</v-icon><a href="/files/CV_2023.pdf" style="color: white; text-decoration: none;" class="downloadcv" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a>
+                <v-btn color="buttonDownload" class="white--text cvBtn" size="x-large" rounded="pill">
+                    <a href="/files/CV_2023.pdf" style="color: white; text-decoration: none;" class="downloadcv" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a>
                 </v-btn>
             </v-container>
             <v-icon class="arrow-icon" style="color: white; margin-top: 8vh; scale: 1.5;">mdi-arrow-down</v-icon>
@@ -67,6 +67,14 @@
     font-size: 2em;
     font-weight: 300;
     font-style: italic;
+}
+
+.cvBtn{
+    transition: ease-in-out 0.5s;
+}
+
+.cvBtn:hover{
+    scale: 1.05;
 }
 
 .bioContainer{
@@ -139,10 +147,11 @@
     }
 
     .bioTitle{
-        font-size: 1.9em;
+        font-size: 3em;
         font-weight: 700;
         font-style: italic;
     }
+
 }
 
 
@@ -171,12 +180,14 @@
     40% {
       transform: translateY(0);
     }
-  }
+}
   
-  .arrow-icon {
-    animation-name: arrow-move;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-  }
+.arrow-icon {
+animation-name: arrow-move;
+animation-duration: 3s;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite;
+}
+
+
 </style>  

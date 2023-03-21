@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex align-center justify-center">
-        <v-card id="documents" class="elevation-10">
+        <v-card id="documents" class="elevation-10" color="secondary">
             <v-container class="d-flex align-center justify-center docContainer">
                 <div class="text-center">
                     <h1>Documents</h1>
@@ -22,12 +22,12 @@
                         Voir les documents
                         </v-btn>
                     </template>
-                    <v-card>
+                    <v-card color="primary">
                         <v-card-title>
                         <span class="dialogText">Téléchargement des documents</span>
                         </v-card-title>
                         <v-card-text>
-                            <v-card v-for="docs in documentsInfos" :key="docs" elevation="8"
+                            <v-card color="secondary" v-for="docs in documentsInfos" :key="docs" elevation="8"
                                 class="mx-auto my-4 cardDoc"
                                 width="96%"
                                 :prepend-avatar="docs.logoSrc">
@@ -46,7 +46,7 @@
                         <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn
-                            color="primary"
+                            color="hamburger"
                             variant="text"
                             @click="dialog = false"
                         >
@@ -116,7 +116,7 @@ export default {
 
 #documents{
     margin-top: 3vh;
-    width: 80%;
+    width: 60%;
     border-radius: 2em;
     padding: 1em;
 }
