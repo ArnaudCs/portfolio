@@ -2,7 +2,7 @@
   <v-app id="home">
     <HeaderComp />
     <v-main>
-      <BioComp />
+      <BioComp class="intro"/>
       <ProjectComp />
       <DocumentCompVue />
       <TimelineExpComp />
@@ -51,6 +51,9 @@ export default {
 <style>
 html{
   scroll-behavior: smooth;
+}
+
+.intro{
 }
 
 </style>

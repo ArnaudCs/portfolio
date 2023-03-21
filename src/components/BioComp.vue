@@ -1,16 +1,21 @@
 <template>
     <v-parallax class="bioCard d-flex align-center justify-center" src="../assets/palmsModified.jpg">
-        <div class="bioContainer">
-            <p class="bioTitle pb-2">{{ title }}</p>
-            <p class="bioText"> {{ body }} </p>
-            <p class="bioText"> {{ body1 }} </p>
-            <p class="bioText"> {{ body2 }} </p>
-        </div>
+        <v-card class="textHome text-center" elevation="0" color="transparent">
+            <h2 class="bioTitle my-5">Etudiant en informatique</h2>
+            <h4 class="bioText my-5">Etudiant en Master Génie Logiciel à l'université de Montpellier.</h4>
+            <v-container class="d-flex justify-center align-center">
+                <v-btn color="indigo" class="white--text cvBtn" rounded>
+                <v-icon>mdi-download</v-icon><a href="/files/CV_2023.pdf" style="color: white; text-decoration: none;" class="downloadcv" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a>
+                </v-btn>
+            </v-container>
+            <v-icon class="arrow-icon" style="color: white; margin-top: 8vh; scale: 1.5;">mdi-arrow-down</v-icon>
+        </v-card>
         
     </v-parallax>
 </template>
   
 <script>
+
     export default {
         name: "BioComp",
 
@@ -29,16 +34,24 @@
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gotham-rounded');
+
+.textHome{
+    transform: translateY(-4vh);
+    overflow: visible;
+}
+
+
 .bioCard{
     max-height: 65vh;
     width: 100%;
     background-attachment: fixed;
     background-size: cover;
     position: relative;
-    min-height: 100vh;
-    margin: 0 auto;
-    z-index: 1;
+    max-height: 100vh;
+    z-index: 0;
 }
+
 
 .bioText{
     color: white;
@@ -50,7 +63,7 @@
 
 .bioTitle{
     color: white;
-    font-family: 'Public Sans', sans-serif;
+    font-family: 'Gotham Rounded', sans-serif;
     font-size: 2em;
     font-weight: 300;
     font-style: italic;
@@ -60,9 +73,15 @@
     padding: 4em 4em 4em 4em;
 }
 
+@media only screen and (min-width: 767px) {
+    .bioCard {
+        min-height: 100vh;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .bioCard {
-        max-height: 90%;
+        min-height: 100vh;
     }
 
     .bioContainer{
@@ -84,7 +103,7 @@
 
 @media only screen and (max-width: 1280px) {
     .bioCard {
-        max-height: 90%;
+        max-height: 100vh;
     }
 
     .bioContainer{
@@ -92,29 +111,72 @@
     }
 
     .bioText{
-        font-size: 1,2em;
-        font-weight: 300;
+        font-size: 1.5em;
+        font-weight: 700;
         margin-top: 2vh;
     }
 
     .bioTitle{
-        font-size: 1.7em;
-        font-weight: 300;
+        font-size: 1.9em;
+        font-weight: 700;
         font-style: italic;
     }
 }
+
+@media only screen and (min-width: 1280px) {
+    .bioCard {
+        max-height: 100vh;
+    }
+
+    .bioContainer{
+        padding: 2em;
+    }
+
+    .bioText{
+        font-size: 1.5em;
+        font-weight: 700;
+        margin-top: 2vh;
+    }
+
+    .bioTitle{
+        font-size: 1.9em;
+        font-weight: 700;
+        font-style: italic;
+    }
+}
+
 
 @media only screen and (min-width: 1750px) {
+
     .bioText{
-        font-size: 2.7vh;
-        font-weight: 300;
+        font-size: 2em;
+        font-weight: 500;
         margin-top: 2vh;
     }
 
     .bioTitle{
-        font-size: 5vh;
-        font-weight: 300;
+        font-size: 4em;
+        font-weight: 700;
         font-style: italic;
     }
 }
+
+@keyframes arrow-move {
+    0% {
+      transform: translateY(0);
+    }
+    20% {
+      transform: translateY(20px);
+    }
+    40% {
+      transform: translateY(0);
+    }
+  }
+  
+  .arrow-icon {
+    animation-name: arrow-move;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
 </style>  

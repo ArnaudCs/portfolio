@@ -7,8 +7,7 @@
     </v-list>
   </v-navigation-drawer>
   <v-app-bar
-    app 
-    color="transparent"
+    app
     elevation="0"
     elevate-on-scroll
     class="appBar">
@@ -16,7 +15,7 @@
     <v-toolbar-title v-if="windowWidth> 350" class="logo">Arnaud Cossu</v-toolbar-title>
     <v-spacer></v-spacer>
     <template v-if="windowWidth > 945">
-      <v-list color="transparent" class="d-flex align-center">
+      <v-list color="red" class="d-flex align-center">
         <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link>
           <v-list-item-title class="menus">{{menu.title}}</v-list-item-title>
         </v-list-item>
@@ -34,7 +33,7 @@
         </v-list-item>
       </v-list>
     </template>
-    <div color="transparent" id="container" v-if="windowWidth <= 945" style="display: flex; justify-content: flex-end;">
+    <div id="container" v-if="windowWidth <= 945" style="display: flex; justify-content: flex-end;">
       <v-switch
         false-icon="mdi-white-balance-sunny"
         true-icon="mdi-weather-night"
@@ -126,8 +125,6 @@
 }
 
 .appBar{
-  position: fixed;
-  z-index: 9999;
 }
 
 .logo{
