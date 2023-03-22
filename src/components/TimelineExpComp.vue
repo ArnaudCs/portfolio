@@ -8,8 +8,8 @@
         <template v-slot:opposite>
           {{ exp.date }}
         </template>
-        <template v-slot:icon>
-          <v-avatar :image="exp.logoSrc" :size=exp.size ></v-avatar>
+        <template v-slot:icon> 
+          <v-avatar class="logoEntreprise" :image="exp.logoSrc" :size=exp.size ></v-avatar>
         </template>
         <v-card class="elevation-2" color="secondary">
           <v-card-title class="text-h5">
@@ -110,6 +110,10 @@
 
 #timeline{
   margin-top: 12vh;
+}
+
+#experiences{
+  margin-bottom: 10vh;
 }
 
 @media (max-width: 767px) {
