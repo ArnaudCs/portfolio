@@ -1,23 +1,24 @@
 <template>
-    <v-parallax id="home" class="bioCard d-flex align-center justify-center" src="../assets/palmsModified.jpg">
-        <v-card class="textHome text-center" elevation="0" color="transparent">
-            <h2 class="bioTitle my-5">Etudiant en informatique</h2>
-            <h4 class="bioText my-5">Etudiant en Master Génie Logiciel à l'université de Montpellier.</h4>
-            <v-container class="d-flex justify-center align-center">
-                <v-btn color="buttonDownload" class="white--text cvBtn" size="x-large" rounded="pill">
-                    <a href="/files/CV_2023.pdf" style="color: white; text-decoration: none;" class="downloadcv" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a>
-                </v-btn>
-            </v-container>
-            <v-icon class="arrow-icon" style="color: white; margin-top: 8vh; scale: 1.5;">mdi-arrow-down</v-icon>
-        </v-card>
-        
-    </v-parallax>
+    <div class="paral">
+        <v-parallax id="home" class="bioCard d-flex align-center justify-center" src="../assets/pexels-instawalli-176851.jpg">
+            <v-card class="textHome text-center" elevation="0" color="transparent">
+                <h2 class="bioTitle my-5">Etudiant en informatique</h2>
+                <h4 class="bioText my-5">Etudiant en Master Génie Logiciel à l'université de Montpellier.</h4>
+                <v-container class="d-flex justify-center align-center">
+                    <v-btn color="buttonDownload" class="white--text cvBtn" size="x-large" rounded="pill">
+                        <a href="/files/CV_2023.pdf" style="color: white; text-decoration: none;" class="downloadcv" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a>
+                    </v-btn>
+                </v-container>
+                <v-icon class="arrow-icon" style="color: white; margin-top: 8vh; scale: 1.5;">mdi-arrow-down</v-icon>
+            </v-card>
+        </v-parallax>
+    </div>
 </template>
   
 <script>
-
     export default {
         name: "BioComp",
+        windowWidth: 0,
 
         data: () => ({
                 title: 'Quelques informations', 
@@ -49,7 +50,11 @@
     background-size: cover;
     position: relative;
     max-height: 100vh;
-    z-index: 0;
+}
+
+.paral{
+    position: relative;
+    top: 0px;
 }
 
 
@@ -71,6 +76,7 @@
 
 .cvBtn{
     transition: ease-in-out 0.5s;
+    margin-top: 5vh;
 }
 
 .cvBtn:hover{
@@ -85,6 +91,18 @@
     .bioCard {
         min-height: 100vh;
     }
+
+    .bioText{
+        font-size: 1.5em;
+        font-weight: 300;
+        margin-top: 2vh;
+    }
+
+    .bioTitle{
+        font-size: 2em;
+        font-weight: 700;
+        font-style: italic;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -97,14 +115,14 @@
     }
 
     .bioText{
-        font-size: 1em;
+        font-size: 1.2em;
         font-weight: 300;
         margin-top: 2vh;
     }
 
     .bioTitle{
-        font-size: 1.7em;
-        font-weight: 300;
+        font-size: 1.6em;
+        font-weight: 700;
         font-style: italic;
     }
 }
@@ -116,18 +134,6 @@
 
     .bioContainer{
         padding: 2em;
-    }
-
-    .bioText{
-        font-size: 1.5em;
-        font-weight: 700;
-        margin-top: 2vh;
-    }
-
-    .bioTitle{
-        font-size: 1.9em;
-        font-weight: 700;
-        font-style: italic;
     }
 }
 
@@ -152,6 +158,10 @@
         font-style: italic;
     }
 
+    .textHome{
+        margin-top: 4vh;
+    }
+
 }
 
 
@@ -168,6 +178,21 @@
         font-weight: 700;
         font-style: italic;
     }
+}
+
+@media only screen and (min-width: 2000px) {
+
+.bioText{
+    font-size: 2.5em;
+    font-weight: 500;
+    margin-top: 2vh;
+}
+
+.bioTitle{
+    font-size: 5em;
+    font-weight: 700;
+    font-style: italic;
+}
 }
 
 @keyframes arrow-move {

@@ -36,8 +36,8 @@
     </template>
     <div id="container" v-if="windowWidth <= 945" style="display: flex; justify-content: flex-end;">
       <v-switch
-        false-icon="mdi-white-balance"
-        true-icon="mdi-weather-night"
+        true-icon="mdi-white-balance-sunny"
+        false-icon="mdi-weather-night"
         value="grey"
         hide-details
         inset
@@ -121,15 +121,19 @@
 
 <style scoped>
 @import url('https://fonts.cdnfonts.com/css/oswald-4');
+@import url('https://fonts.cdnfonts.com/css/gotham-rounded');
 .mobileLinks{
   font-size: 1.2rem;
 }
 
 .appBar{
+  display: block;
+  position: relative;
 }
 
 .logo{
-  margin-left: 5vw;
+  margin-left: 2vw;
+  font-family: 'Gotham Rounded', sans-serif;
 }
 
 .my-list {
@@ -139,9 +143,9 @@
 
 @media only screen and (max-device-width : 450px) {
   .logo{
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 700;
-    margin-left: 5vw;
+    margin-left: 4vw;
   }
 }
 

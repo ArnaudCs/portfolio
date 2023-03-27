@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <HeaderComp />
     <v-main>
+      <HeaderComp/>
       <BioComp class="intro"/>
       <ProjectComp />
       <DocumentCompVue />
@@ -15,10 +15,10 @@
 import HeaderComp from './components/HeaderComp.vue';
 import ProjectComp from './components/ProjectComp.vue';
 import FooterComp from './components/FooterComp.vue';
-//import HeroComp from './components/HeroComp.vue';
 import DocumentCompVue from './components/DocumentComp.vue';
 import TimelineExpComp from './components/TimelineExpComp.vue';
 import BioComp from './components/BioComp.vue';
+//import AboutComp from './components/AboutComp.vue';
 
 export default {
   name: 'App',
@@ -26,7 +26,7 @@ export default {
     HeaderComp,
     ProjectComp,
     FooterComp,
-    //HeroComp,
+    //AboutComp,
     DocumentCompVue,
     TimelineExpComp,
     BioComp,
@@ -49,6 +49,15 @@ export default {
 </script>
 
 <style>
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  /* Ajoutez ici les autres styles CSS pour HeaderComp */
+}
+
 html{
   scroll-behavior: smooth;
 }

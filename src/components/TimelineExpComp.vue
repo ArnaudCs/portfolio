@@ -1,5 +1,6 @@
 <template id="experiences">
   <v-container id="experiences" class="pa-7 pt-15">
+    <v-divider style="margin-bottom: 7vh;"></v-divider>
     <div class="expTitle d-flex align-center justify-center">
         <h1>Expériences</h1>
     </div>

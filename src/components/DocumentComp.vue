@@ -39,7 +39,7 @@
                                     {{ docs.body }}
                                 </v-card-text>
                                 <v-card-actions>
-                                    <v-btn variant="outlined" rounded="pill" :href="docs.pdf_url" :download="docs.pdfName">Télécharger</v-btn>
+                                    <v-btn style="margin-left: 0.5vw; margin-bottom: 1vh;" variant="tonal" rounded="pill" :href="docs.pdf_url" :download="docs.pdfName">Télécharger</v-btn>
                                 </v-card-actions>
                             </v-card>
                         </v-card-text>

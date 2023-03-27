@@ -25,7 +25,7 @@
         </v-card-text>
   
         <v-card-text class="white--text pt-0">
-          Made with Love <v-icon>mdi-heart</v-icon> and VueJS<v-icon>mdi-vuetify</v-icon>.
+          Made with Love <v-icon>mdi-heart</v-icon> and VueJS<v-icon>mdi-vuetify</v-icon>
         </v-card-text>
   
         <v-divider></v-divider>

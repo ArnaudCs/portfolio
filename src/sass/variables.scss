@@ -1,2 +1,2 @@
-$v-card-background: map-get($theme, secondary); // déclare une couleur en utilisant la variable de thème primary
+$v-card-background: map-get($theme, primary); // déclare une couleur en utilisant la variable de thème primary
 $v-btn-background: map-get($theme, secondary); // déclare une couleur en utilisant la variable de thème primary

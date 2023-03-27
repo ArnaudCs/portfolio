@@ -1,6 +1,5 @@
 <template>
     <v-container id="projects" class="pt-15">
-        <v-divider></v-divider>
         <div class="projectTitle d-flex align-center justify-center">
             <h1>Projets</h1>
         </div>
