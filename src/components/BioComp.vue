@@ -90,16 +90,17 @@
 @media only screen and (min-width: 767px) {
     .bioCard {
         min-height: 100vh;
+        padding: 6vw;
     }
 
     .bioText{
         font-size: 1.5em;
         font-weight: 300;
-        margin-top: 2vh;
+        margin-top: 1vh;
     }
 
     .bioTitle{
-        font-size: 2em;
+        font-size: 3em;
         font-weight: 700;
         font-style: italic;
     }
@@ -108,6 +109,7 @@
 @media only screen and (max-width: 767px) {
     .bioCard {
         min-height: 100vh;
+        padding: 6vw;
     }
 
     .bioContainer{
@@ -117,11 +119,11 @@
     .bioText{
         font-size: 1.2em;
         font-weight: 300;
-        margin-top: 2vh;
+        margin-top: 1vh;
     }
 
     .bioTitle{
-        font-size: 1.6em;
+        font-size: 2.5em;
         font-weight: 700;
         font-style: italic;
     }
