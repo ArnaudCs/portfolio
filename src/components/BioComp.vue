@@ -153,7 +153,7 @@
     }
 
     .bioTitle{
-        font-size: 3em;
+        font-size: 4em;
         font-weight: 700;
         font-style: italic;
     }
@@ -180,19 +180,28 @@
     }
 }
 
-@media only screen and (min-width: 2000px) {
-
-.bioText{
-    font-size: 2.5em;
-    font-weight: 500;
-    margin-top: 2vh;
-}
+@media only screen and (min-width: 800px) {
 
 .bioTitle{
-    font-size: 5em;
+    font-size: 3em;
     font-weight: 700;
     font-style: italic;
 }
+}
+
+@media only screen and (min-width: 2000px) {
+
+    .bioText{
+        font-size: 2.5em;
+        font-weight: 500;
+        margin-top: 2vh;
+    }
+
+    .bioTitle{
+        font-size: 5em;
+        font-weight: 700;
+        font-style: italic;
+    }
 }
 
 @keyframes arrow-move {

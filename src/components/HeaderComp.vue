@@ -1,16 +1,19 @@
 <template>
-  <v-navigation-drawer color="primary" v-model="drawer" temporary class="drawer" style="opacity: 0.9; padding-top: 5vh; padding-left: 2vh;">
-    <v-list nav v-for="(menu, index) in menus" :key="index">
-      <v-list-item @click="drawer = null" :prepend-icon="menu.icon" :href=menu.link>
+  <v-navigation-drawer color="primary" v-model="drawer" temporary class="drawer" style="width: 100%; opacity: 0.95; padding-top: 15vh;">
+    <v-list class="drawer" nav v-for="(menu, index) in menus" :key="index">
+      <v-list-item @click="drawer = null" :href=menu.link>
         <v-list-item-title class="mobileLinks" @click="drawer = null">{{menu.title}}</v-list-item-title>
       </v-list-item>
     </v-list>
+    <div class="closeBtn d-flex align-center justify-center">
+      <v-btn variant="text" :ripple="false" @click="drawer = false"><v-icon size="x-large" icon="mdi-close-outline"></v-icon></v-btn>
+    </div>
   </v-navigation-drawer>
   <v-app-bar
     app
     elevation="0"
+    color="primary"
     elevate-on-scroll
-    color="secondary"
     class="appBar">
   
     <v-toolbar-title v-if="windowWidth> 350" class="logo">Arnaud Cossu</v-toolbar-title>
@@ -123,12 +126,19 @@
 @import url('https://fonts.cdnfonts.com/css/oswald-4');
 @import url('https://fonts.cdnfonts.com/css/gotham-rounded');
 .mobileLinks{
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  line-height: 50px;
+  font-family: 'Gotham Rounded', sans-serif;
 }
 
 .appBar{
   display: block;
   position: relative;
+}
+
+.closeBtn{
+  margin-top: 6vh;
+  scale: 1.7;
 }
 
 .logo{
@@ -158,5 +168,12 @@
   .menus{
     font-size: 1.1vw;
   }
+}
+
+.drawer{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  backdrop-filter: blur(10px);
 }
 </style>  
