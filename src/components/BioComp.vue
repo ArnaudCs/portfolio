@@ -1,6 +1,6 @@
 <template>
     <div class="paral">
-        <v-parallax id="home" class="bioCard d-flex align-center justify-center" src="../assets/pexels-instawalli-176851.jpg">
+        <v-parallax id="home" class="bioCard d-flex align-center justify-center" src="../assets/pexels-instawalli-176851.webp">
             <v-card class="textHome text-center" elevation="0" color="transparent">
                 <h2 class="bioTitle my-5">Etudiant en informatique</h2>
                 <h4 class="bioText my-5">Etudiant en Master Génie Logiciel à l'université de Montpellier.</h4>

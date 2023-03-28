@@ -27,7 +27,7 @@
           <v-switch v-model="ex11"
               true-icon="mdi-white-balance-sunny"
               false-icon="mdi-weather-night"
-              value="grey"
+              value="secondary"
               hide-details
               class="ml-2"
               inset
@@ -41,7 +41,7 @@
       <v-switch
         true-icon="mdi-white-balance-sunny"
         false-icon="mdi-weather-night"
-        value="grey"
+        value="secondary"
         hide-details
         inset
         @click="toggleTheme">
