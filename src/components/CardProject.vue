@@ -30,7 +30,10 @@
             active-class="deep-purple accent-4 white--text"
             column
         >
-            <v-chip v-for="language in languages" :key="language">{{ language }}</v-chip>
+            <v-chip v-for="language in languages" :key="language">
+                <v-avatar class="codeIcon"><img class="iconImage" :src="language.icon"></v-avatar>
+                {{ language.name }}
+            </v-chip>
         </v-chip-group>
         </v-card-text>
 
@@ -66,6 +69,11 @@
         object-fit: none !important;
     }
 
+    .iconImage{
+        max-width: 100%;
+        max-height: 100%;
+    }
+
     .roundedCard{
         border-radius: 2em;
         width: 22em;
@@ -75,6 +83,12 @@
         .roundedCard{
             width: 21em;
         }
+    }
+
+    .codeIcon{
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: 0.5em;
     }
     
   </style>  

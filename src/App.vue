@@ -4,6 +4,7 @@
       <HeaderComp/>
       <BioComp class="intro"/>
       <ProjectComp />
+      <CarousselComponent />
       <DocumentCompVue />
       <TimelineExpComp />
     </v-main>
@@ -18,6 +19,7 @@ import FooterComp from './components/FooterComp.vue';
 import DocumentCompVue from './components/DocumentComp.vue';
 import TimelineExpComp from './components/TimelineExpComp.vue';
 import BioComp from './components/BioComp.vue';
+import CarousselComponent from './components/CarousselComponent.vue';
 //import AboutComp from './components/AboutComp.vue';
 
 export default {
@@ -26,6 +28,7 @@ export default {
     HeaderComp,
     ProjectComp,
     FooterComp,
+    CarousselComponent,
     //AboutComp,
     DocumentCompVue,
     TimelineExpComp,

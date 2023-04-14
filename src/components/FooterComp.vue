@@ -15,12 +15,12 @@
           <v-btn
           v-for="icon in socialLinks"
           :key="icon.icon"
-          class="mx-4 my-4 white--text"
+          class="footerBtn mx-4 my-4 white--text"
           :href="icon.link"
           :icon="true"
           color="button"
           target="_blank">
-          <v-icon size="24px">{{ icon.icon }}</v-icon>
+          <v-icon class="" size="24px">{{ icon.icon }}</v-icon>
           </v-btn>
         </v-card-text>
   
@@ -52,4 +52,7 @@
     }
   </script>
 
-  <style scoped></style>  
+<style scoped>
+
+
+</style>  

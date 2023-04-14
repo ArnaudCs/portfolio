@@ -1,5 +1,10 @@
 <template>
-    <div class="d-flex align-center justify-center">
+    <v-lazy
+    :min-height="200"
+    :options="{ threshold: 0.8 }"
+    transition="scale-transition"
+    >
+    <div id="docs" style="scroll-margin-top: 80px;" class="d-flex align-center justify-center">
         <v-card id="documents" class="elevation-10" color="secondary">
             <v-container class="d-flex align-center justify-center docContainer">
                 <div class="text-center">
@@ -63,6 +68,7 @@
             </v-container>
         </v-card>
     </div>
+    </v-lazy>
 </template>
 
 <script>
@@ -113,6 +119,7 @@ export default {
 .docContainer{
     margin-top: 3vh;
 }
+
 
 #documents{
     margin-top: 3vh;

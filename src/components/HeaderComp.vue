@@ -16,7 +16,7 @@
     elevate-on-scroll
     class="appBar">
   
-    <v-toolbar-title v-if="windowWidth> 350" class="logo">Arnaud Cossu</v-toolbar-title>
+    <v-toolbar-title v-if="windowWidth> 350" class="logo"><a href="#home" class="colorLogo">Arnaud Cossu</a></v-toolbar-title>
     <v-spacer></v-spacer>
     <template v-if="windowWidth > 945">
       <v-list class="d-flex align-center my-list" style="background-color: secondary;">
@@ -96,7 +96,7 @@
           },
           {
             title: 'Documents',
-            link: '#documents',
+            link: '#docs',
             icon: 'mdi-file'
           },
           {
@@ -148,6 +148,11 @@
 
 .my-list {
   background-color: var(--v-card-background); /* utilise la variable de thème pour la couleur de fond */
+  color: var(--v-text-primary-on-background); /* utilise la variable de thème pour la couleur du texte */
+}
+
+.colorLogo{
+  text-decoration: none;
   color: var(--v-text-primary-on-background); /* utilise la variable de thème pour la couleur du texte */
 }
 

@@ -18,7 +18,9 @@ export default createVuetify({
         colors: {
           secondary: '#ffffff',
           hamburger: '#000000',
+          button: '#ffffff',
           primary: '#ffffff',
+          btnText: '#ffffff',
           buttonDownload: '#1E3851',
         }
       },
