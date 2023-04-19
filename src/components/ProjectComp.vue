@@ -44,17 +44,23 @@
                 { name: 'JS', icon: '/icons/javascript.svg' }],
                 link: "https://cashboard.arnaudcs.repl.co/index.php"},
 
-                { title: 'Analyseur Mail', 
-                body: 'Analyseur avec statistique sur corpus de mails dans les envois entre chercheurs, calculs des fréquences d\'envoi et graphiques.', 
-                src: "https://i.ibb.co/tBLHVXS/Analyseur-De-Mail.png", 
-                languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' },{ name: 'python', icon: '/icons/python.svg' }],
-                link: "https://github.com/Gaiko19/INTER2-HUT"},
+                { title: 'Application Metrix', 
+                body: 'Application simple de calul de prorata et de réductions, IOS et Android', 
+                src: "https://i.ibb.co/frXw7Vj/Scene.png", 
+                languages: [{ name: 'React Native', icon: '/icons/react.svg' }, { name: 'CSS', icon: '/icons/CSS.svg' }],
+                link: "https://github.com/ArnaudCs/Metrix"},
 
                 { title: 'Jeux IOS Morpion',
                 body: 'Jeu du morpion avec IA (simple), avec différents thèmes. Version modifiée et dépréciée (installation avec XCode)', 
                 src: "https://i.ibb.co/KmMsTk4/Morpion-Mockup.png", 
                 languages: [{ name: 'Swift', icon: '/icons/swift.svg' }],
                 link:"https://github.com/ArnaudCs/Projects/tree/main/TickityTacTow-main"},
+
+                { title: 'Analyseur Mail', 
+                body: 'Analyseur avec statistique sur corpus de mails dans les envois entre chercheurs, calculs des fréquences d\'envoi et graphiques.', 
+                src: "https://i.ibb.co/tBLHVXS/Analyseur-De-Mail.png", 
+                languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' },{ name: 'python', icon: '/icons/python.svg' }],
+                link: "https://github.com/Gaiko19/INTER2-HUT"},
 
                 { title: 'Maquettes Figma', 
                 body: 'Réalisation de différentes maquettes d\'application', 
@@ -67,12 +73,6 @@
                 src: "https://i.ibb.co/GJx6LZn/two-standing-smartphones-mockup.png", 
                 languages: [{ name: 'React Native', icon: '/icons/react.svg' }],
                 ink: "https://github.com/ArnaudCs/Projects/tree/main/React_Calculatrice"},
-
-                { title: 'Tasker React', 
-                body: 'Application de tâches (gestionnaire) en React Native', 
-                src: "https://i.ibb.co/tDScLKQ/Tasker-Mockup.png", 
-                languages: [{ name: 'React Native', icon: '/icons/react.svg' }],
-                link: "https://github.com/ArnaudCs/Projects/tree/main/React_to_do_list"},
             ],
             };
         },
