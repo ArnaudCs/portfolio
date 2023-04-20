@@ -9,7 +9,7 @@
                         <a href="/files/CV_2023_COSSU_ARNAUD.pdf" style="color: white; text-decoration: none;" class="downloadcv" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a>
                     </v-btn>
                 </v-container>
-                <a href="#projects"><v-icon class="arrow-icon" style="cursor: pointer; color: white; margin-top: 8vh; scale: 1.5;">mdi-arrow-down</v-icon></a>
+                <a href="#projects" style="text-decoration: none"><v-icon class="arrow-icon" style="cursor: pointer; color: white; margin-top: 8vh; scale: 1.5;">mdi-arrow-down</v-icon></a>
             </v-card>
         </v-parallax>
     </div>
