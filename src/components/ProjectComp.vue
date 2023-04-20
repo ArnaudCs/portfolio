@@ -47,7 +47,7 @@
                 { title: 'Application Metrix', 
                 body: 'Application simple de calul de prorata et de réductions, IOS et Android', 
                 src: "https://i.ibb.co/frXw7Vj/Scene.png", 
-                languages: [{ name: 'React Native', icon: '/icons/react.svg' }, { name: 'CSS', icon: '/icons/CSS.svg' }],
+                languages: [{ name: 'React Native', icon: '/icons/react.svg' }, { name: 'CSS', icon: '/icons/css.svg' }],
                 link: "https://github.com/ArnaudCs/Metrix"},
 
                 { title: 'Jeux IOS Morpion',
