@@ -1,9 +1,4 @@
 <template>
-    <v-lazy
-    :min-height="200"
-    :options="{ threshold: 0.8 }"
-    transition="scale-transition"
-    >
     <v-container id="projects" class="pt-15">
         <div class="projectTitle d-flex align-center justify-center">
             <h1>Projets</h1>
@@ -21,7 +16,6 @@
             </CardProject>
         </v-row>
     </v-container>
-    </v-lazy>  
 </template>
   
   <script>

@@ -1,9 +1,4 @@
 <template id="experiences">
-  <v-lazy
-    :min-height="200"
-    :options="{ threshold: 0.1 }"
-    transition="scale-transition"
-  >
   <v-container id="experiences" class="pa-7 pt-15">
     <v-divider style="margin-bottom: 7vh;"></v-divider>
     <div class="expTitle d-flex align-center justify-center">
@@ -50,7 +45,6 @@
       </v-timeline-item>
     </v-timeline>
   </v-container>
-  </v-lazy>
 </template>
 
 <script>

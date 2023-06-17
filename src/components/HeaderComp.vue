@@ -20,7 +20,7 @@
     <v-spacer></v-spacer>
     <template v-if="windowWidth > 945">
       <v-list class="d-flex align-center my-list" style="background-color: secondary;">
-        <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link>
+        <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link @click="scrollTo(menu.link)">
           <v-list-item-title class="menus">{{menu.title}}</v-list-item-title>
         </v-list-item>
         <v-list-item>
@@ -54,7 +54,7 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link>
+        <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link @click="scrollTo(menu.link)">
           <v-list-item-title>{{menu.title}}</v-list-item-title>
         </v-list-item> 
       </v-list>
@@ -117,6 +117,12 @@
     methods: {
       getWindowWidth() {
         this.windowWidth = window.innerWidth
+      },
+      scrollTo(target) {
+        const element = document.querySelector(target);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
   }

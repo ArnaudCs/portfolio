@@ -61,7 +61,7 @@ export default {
   /* Ajoutez ici les autres styles CSS pour HeaderComp */
 }
 
-html{
+html, body{
   scroll-behavior: smooth;
 }
 </style>

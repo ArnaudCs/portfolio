@@ -11,6 +11,7 @@ loadFonts()
   config: { id: "G-5NTELR7JVE"}
 }); */
 
+
 createApp(App)
   .use(vuetify)
   .mount('#app')
