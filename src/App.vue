@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-main>
+      <LoadingElement v-if="isLoading"/>
       <HeaderComp/>
       <BioComp class="intro"/>
       <ProjectComp />
@@ -20,6 +21,7 @@ import DocumentCompVue from './components/DocumentComp.vue';
 import TimelineExpComp from './components/TimelineExpComp.vue';
 import BioComp from './components/BioComp.vue';
 import CarousselComponent from './components/CarousselComponent.vue';
+import LoadingElement from './components/LoadingElement.vue';
 //import AboutComp from './components/AboutComp.vue';
 
 export default {
@@ -33,10 +35,11 @@ export default {
     DocumentCompVue,
     TimelineExpComp,
     BioComp,
+    LoadingElement
   },
   data() {
     return {
-      
+      isLoading: true,
     };
   },
   methods: {
@@ -47,7 +50,12 @@ export default {
         behavior: "smooth"
       });
     },
-  }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+  },
 };
 </script>
 

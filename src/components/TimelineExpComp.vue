@@ -10,9 +10,9 @@
           {{ exp.date }}
         </template>
         <template v-slot:icon> 
-          <v-avatar class="logoEntreprise" :image="exp.logoSrc" :size=exp.size ></v-avatar>
+          <v-avatar class="logoEntreprise" :image="exp.logoSrc" :size=exp.size @click="goto(exp.link)"></v-avatar>
         </template>
-        <v-card class="elevation-2" color="secondary">
+        <v-card class="elevation-2 timelineCard" color="secondary">
           <v-card-title class="text-h5">
             {{ exp.entreprise }}
           </v-card-title>
@@ -29,9 +29,9 @@
     <v-timeline truncate-line="both" v-if="windowWidth <= 960" side="end">
       <v-timeline-item size="large" v-for="exp in exps" :key="exp">
         <template v-slot:icon>
-          <v-avatar :image="exp.logoSrc" :size=exp.size ></v-avatar>
+          <v-avatar :image="exp.logoSrc" :size=exp.size @click="goto(exp.link)"></v-avatar>
         </template>
-        <v-card class="elevation-2" color="secondary">
+        <v-card class="elevation-2 timelineCard" color="secondary">
           <v-card-title class="text-h5">
             {{ exp.entreprise }}
           </v-card-title>
@@ -60,7 +60,8 @@
             description: 'Stagiaire Web dans l\'entreprise VOGO (équipe de développement). Réalisations de modules pour la partie Web Front et Back. Utilisation de différents langages comme HTML, CSS, JavaScript, SQL, VueJS', 
             title : 'Stagiaire Développeur Web',
             logoSrc : 'https://i.ibb.co/CQqJBch/logoVogo.png',
-            size : "60"
+            size : "60",
+            link: 'https://www.vogo-group.com/'
         },
         {
             description: 'Réalisation de plusieurs stage, Mavis avec la reconstitution en 3D d\'un musée, comprenant des batiments et un environnement complet. Réalisation d\'un deuxième stage avec un analyseur de mails en Python',
@@ -68,7 +69,8 @@
             date: '2020-2021',
             title : 'Stagiaire Développeur',
             logoSrc : 'https://i.ibb.co/2cx9xzR/logo-Lirmm.png',
-            size : "60"
+            size : "60",
+            link: 'https://www.lirmm.fr/'
         },
         {
             description: 'Vendeur et conseiller multimédia dans les rayons Télévision, Hi-Fi, Téléphonie et Informatique. Réalisation de différents supports et affiches graphiques pour la vente.',
@@ -76,7 +78,8 @@
             date: '2021',
             title : 'Vendeur Conseiller',
             logoSrc : 'https://i.ibb.co/h21Zv5D/log-depot.png',
-            size : "60"
+            size : "60",
+            link: 'https://www.electrodepot.fr/'
         },
         {
             description: 'Vendeur conseiller mécanicien, avec formation de 3 jours sur le montage et l\'entretien des vélos. Rayons chasse et pêche et cyclisme. Apprentissage de la caisse manuelle et automatique avec système RFID.',
@@ -84,7 +87,8 @@
             date: '2019',
             title : 'Vendeur Conseiller',
             logoSrc : 'https://i.ibb.co/rxpmSYW/logo-Decat.jpg',
-            size : "60"
+            size : "60",
+            link: 'https://www.decathlon.fr/'
         },
         ],
     }),
@@ -98,12 +102,44 @@
     methods: {
       getWindowWidth() {
         this.windowWidth = window.innerWidth
+      },
+      goto(link){
+        window.open(link, '_blank');
       }
     }
     }
 </script>
 
 <style>
+
+.timelineCard{
+  border-radius: 1em;
+  transition: 0.8s ease-in-out;
+}
+
+.logoEntreprise{
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out; /* Ajout de la transition */
+}
+
+.logoEntreprise:hover {
+  transform: scale(1.1); /* Effet de sautillement, agrandissement de 10% */
+  animation: bounce 0.8s infinite; /* Ajout de l'animation de sautillement */
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Position initiale */
+  }
+  50% {
+    transform: translateY(-5px); /* Position pendant le saut */
+  }
+}
+
+.timelineCard:hover{
+  scale: 1.03;  
+}
+
 .exp {
   margin-bottom: 10px;
   border-radius: 20px;

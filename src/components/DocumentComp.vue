@@ -23,7 +23,7 @@
                         </v-btn>
                     </template>
                     <v-card color="primary">
-                        <v-card-title>
+                        <v-card-title class="mt-4">
                         <span class="dialogText">Téléchargement des documents</span>
                         </v-card-title>
                         <v-card-text>
@@ -38,16 +38,18 @@
                                 <v-card-text>
                                     {{ docs.body }}
                                 </v-card-text>
-                                <v-card-actions>
-                                    <v-btn style="margin-left: 0.5vw; margin-bottom: 1vh;" variant="tonal" rounded="pill" :href="docs.pdf_url" :download="docs.pdfName">Télécharger</v-btn>
+                                <v-card-actions style="display: flex; justify-content: flex-end;">
+                                    <v-btn class="my-2 mx-2" variant="elevated" rounded="pill" color="primary" elevation="5" :href="docs.pdf_url" :download="docs.pdfName">Télécharger</v-btn>
                                 </v-card-actions>
                             </v-card>
                         </v-card-text>
                         <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn
-                            color="hamburger"
-                            variant="text"
+                            color="secondary"
+                            class="my-2 mx-2"
+                            variant="elevated"
+                            rounded="pill"
                             @click="dialog = false"
                         >
                         <v-tooltip

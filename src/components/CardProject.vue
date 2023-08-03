@@ -1,7 +1,7 @@
 <template>
-    <v-card :loading="loading" class="mx-auto my-12 roundedCard">
+    <v-card :loading="loading" class="mx-auto roundedCard">
         <v-img class="projectImages"
-        height="250"
+        height="230"
         :src="src"
         cover
         ></v-img>
@@ -9,39 +9,39 @@
         <v-card-title>{{ title }}</v-card-title>
 
         <v-card-text>
-        <v-row
-            style="align=center"
-            class="mx-0">
-        </v-row>
+            <v-row
+                style="align=center"
+                class="mx-0">
+            </v-row>
 
-        <div class="my-4 text-subtitle-1">
-        </div>
+            <div class="my-4 text-subtitle-1">
+            </div>
 
-        <div>{{ body }}</div>
+            <div style="height: 10vh;">{{ body }}</div>
+
+            <v-divider class="mx-4 my-4"></v-divider>
+
+            <p class="mb-2">Langages utilisés</p>
+
+            <v-chip-group
+                v-model="selection"
+                active-class="deep-purple accent-4 white--text"
+                column
+            >
+                <v-chip v-for="language in languages" :key="language">
+                    <v-avatar class="codeIcon"><img class="iconImage" :src="language.icon"></v-avatar>
+                    {{ language.name }}
+                </v-chip>
+            </v-chip-group>
+
         </v-card-text>
-
-        <v-divider class="mx-4"></v-divider>
-
-        <v-card-title>Langages utilisés</v-card-title>
-
-        <v-card-text>
-        <v-chip-group
-            v-model="selection"
-            active-class="deep-purple accent-4 white--text"
-            column
-        >
-            <v-chip v-for="language in languages" :key="language">
-                <v-avatar class="codeIcon"><img class="iconImage" :src="language.icon"></v-avatar>
-                {{ language.name }}
-            </v-chip>
-        </v-chip-group>
-        </v-card-text>
-
-        <v-card-actions>
+        <v-card-actions style="display: flex; justify-content: flex-end;">
             <v-btn 
-                color="projectButton"
-                rounded
-                class="white--text"
+                color="primary"
+                elevation="3"
+                rounded="pill"
+                variant="elevated"
+                class="white--text mx-2"
                 target='_blank'
                 :href="link">
                 Voir le projet
@@ -76,13 +76,6 @@
 
     .roundedCard{
         border-radius: 2em;
-        width: 22em;
-    }
-
-    @media only screen and (max-width: 767px) {
-        .roundedCard{
-            width: 21em;
-        }
     }
 
     .codeIcon{

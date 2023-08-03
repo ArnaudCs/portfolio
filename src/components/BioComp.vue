@@ -54,7 +54,7 @@
 
 .paral{
     position: relative;
-    top: 0px;
+    top: 0;
 }
 
 

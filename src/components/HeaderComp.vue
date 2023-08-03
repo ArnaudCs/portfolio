@@ -12,7 +12,7 @@
   <v-app-bar
     app
     elevation="0"
-    color="primary"
+    color="transparent"
     elevate-on-scroll
     class="appBar">
   
