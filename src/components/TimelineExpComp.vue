@@ -1,8 +1,7 @@
 <template id="experiences">
-  <v-container id="experiences" class="pa-7 pt-15">
-    <v-divider style="margin-bottom: 7vh;"></v-divider>
-    <div class="expTitle d-flex align-center justify-center">
-        <h1>Expériences</h1>
+  <v-container id="experiences" class="pa-7 mb-15">
+    <div class="expTitle">
+        <h1 style="text-align: center;">Expériences importantes</h1>
     </div>
     <v-timeline truncate-line="both" v-if="windowWidth > 960">
       <v-timeline-item size="large" v-for="exp in exps" :key="exp">
@@ -12,7 +11,7 @@
         <template v-slot:icon> 
           <v-avatar class="logoEntreprise" :image="exp.logoSrc" :size=exp.size @click="goto(exp.link)"></v-avatar>
         </template>
-        <v-card class="elevation-2 timelineCard" color="secondary">
+        <v-card class="elevation-2 timelineCard">
           <v-card-title class="text-h5">
             {{ exp.entreprise }}
           </v-card-title>
@@ -31,7 +30,7 @@
         <template v-slot:icon>
           <v-avatar :image="exp.logoSrc" :size=exp.size @click="goto(exp.link)"></v-avatar>
         </template>
-        <v-card class="elevation-2 timelineCard" color="secondary">
+        <v-card class="elevation-2 timelineCard">
           <v-card-title class="text-h5">
             {{ exp.entreprise }}
           </v-card-title>
@@ -53,6 +52,26 @@
         tab: null,
         windowWidth: 0,
         exps: [
+        {
+            entreprise : 'Fayat',
+            color: 'deep-purple',
+            date: '2023',
+            description: 'Stagiaire Web dans l\'entreprise Fayat. Développement complet et autonome d\'une web application pour la gestion des livraisons et des chantiers. Utilisation de différents langages comme HTML, CSS, JavaScript, SQL, VueJS', 
+            title : 'Stagiaire Développeur Web',
+            logoSrc : 'https://i.ibb.co/FKHk7Q4/fayat-Logo.png',
+            size : "60",
+            link: 'https://www.fayat.com/'
+        },
+        {
+            entreprise : 'Lirmm',
+            color: 'deep-purple',
+            date: '2023',
+            description: 'Stage en équipe, réalisation d\'un solveur pour assurer informatiquement et automatiquement la répartition des étudiants dans les salles d\'examen. Utilisation de différents langages comme Python, JS, HTML, CSS', 
+            title : 'Stagiaire Développeur Web',
+            logoSrc : 'https://i.ibb.co/2cx9xzR/logo-Lirmm.png',
+            size : "60",
+            link: 'https://www.lirmm.fr/'
+        },
         {
             entreprise : 'VOGO',
             color: 'deep-purple',
@@ -114,12 +133,20 @@
 
 .timelineCard{
   border-radius: 1em;
-  transition: 0.8s ease-in-out;
+  transition: 0.4s ease-in-out;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .logoEntreprise{
   cursor: pointer;
   transition: transform 0.2s ease-in-out; /* Ajout de la transition */
+}
+
+.infosExp{
+  opacity: 0.5;
 }
 
 .logoEntreprise:hover {
@@ -175,6 +202,9 @@
     font-weight: 900;
     margin-top: 1vh;
     margin-bottom: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 </style>

@@ -1,13 +1,13 @@
 <template>
-  <v-app>
+  <v-app class="app">
     <v-main>
       <LoadingElement v-if="isLoading"/>
       <HeaderComp/>
       <BioComp class="intro"/>
       <ProjectComp />
       <CarousselComponent />
-      <DocumentCompVue />
       <TimelineExpComp />
+      <DocumentCompVue />
     </v-main>
     <FooterComp />
   </v-app>
@@ -60,6 +60,14 @@ export default {
 </script>
 
 <style>
+
+.app{
+  background: rgb(102, 5, 121);
+  background: linear-gradient(to top left, rgb(125, 0, 96), rgba(0, 0, 0, 0), rgb(24, 0, 75)), linear-gradient(to top right, rgb(121, 57, 0), rgba(255, 153, 150, 0), rgb(76, 0, 76)) rgb(76, 0, 86);
+  position:relative;
+  scroll-behavior: smooth;
+}
+
 .header {
   position: absolute;
   top: 0;
@@ -69,7 +77,7 @@ export default {
   /* Ajoutez ici les autres styles CSS pour HeaderComp */
 }
 
-html, body{
+html{
   scroll-behavior: smooth;
 }
 </style>

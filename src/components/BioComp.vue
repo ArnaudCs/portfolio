@@ -1,17 +1,17 @@
 <template>
     <div class="paral">
-        <v-parallax id="home" class="bioCard d-flex align-center justify-center" src="../assets/pexels-instawalli-176851.webp">
+        <div id="home" class="bioCard d-flex align-center justify-center">
             <v-card class="textHome text-center" elevation="0" color="transparent">
                 <h2 class="bioTitle my-5">Etudiant en informatique</h2>
                 <h4 class="bioText my-5">Etudiant en Master Génie Logiciel à l'université de Montpellier.</h4>
                 <v-container class="d-flex justify-center align-center">
-                    <v-btn color="buttonDownload" class="white--text cvBtn" size="x-large" rounded="pill">
+                    <v-btn class="cvBtn" size="x-large" rounded="pill">
                         <a href="/files/CV_2023_COSSU_ARNAUD.pdf" style="color: white; text-decoration: none;" class="downloadcv" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a>
                     </v-btn>
                 </v-container>
-                <a href="#projects" style="text-decoration: none"><v-icon class="arrow-icon" style="cursor: pointer; color: white; margin-top: 8vh; scale: 1.5;">mdi-arrow-down</v-icon></a>
+                <a href="#projects" v-smooth-scroll style="text-decoration: none"><v-icon class="arrow-icon" style="cursor: pointer; color: white; margin-top: 8vh; scale: 1.5; rotate: 180deg;">mdi-rocket</v-icon></a>
             </v-card>
-        </v-parallax>
+        </div>
     </div>
 </template>
   
@@ -77,6 +77,11 @@
 .cvBtn{
     transition: ease-in-out 0.5s;
     margin-top: 5vh;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .cvBtn:hover{

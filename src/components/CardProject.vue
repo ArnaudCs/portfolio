@@ -1,12 +1,12 @@
 <template>
-    <v-card :loading="loading" class="mx-auto roundedCard">
+    <v-card class="mx-auto roundedCard">
         <v-img class="projectImages"
         height="230"
         :src="src"
         cover
         ></v-img>
 
-        <v-card-title>{{ title }}</v-card-title>
+        <v-card-title class="my-2">{{ title }}</v-card-title>
 
         <v-card-text>
             <v-row
@@ -37,11 +37,10 @@
         </v-card-text>
         <v-card-actions style="display: flex; justify-content: flex-end;">
             <v-btn 
-                color="primary"
                 elevation="3"
                 rounded="pill"
                 variant="elevated"
-                class="white--text mx-2"
+                class="mx-2 mb-1 seeProjectBtn"
                 target='_blank'
                 :href="link">
                 Voir le projet
@@ -65,6 +64,14 @@
   </script>
 
   <style scoped>
+
+    .seeProjectBtn{
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
     .projectImages{
         object-fit: none !important;
     }

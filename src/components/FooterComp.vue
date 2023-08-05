@@ -1,40 +1,38 @@
 <template>
-    <v-footer
-      dark
-      padless id="contact"
-      class="d-flex align-center justify-center"
-      color="secondary"
-    >
-      <v-card
-        flat
-        tile
-        class="indigo lighten-1 white--text text-center"
-        color="secondary"
+    <div class="footerDiv">
+      <v-footer
+        dark
+        padless id="contact"
+        class="d-flex align-center justify-center"
+        color="transparent"
       >
-        <v-card-text>
-          <v-btn
-          v-for="icon in socialLinks"
-          :key="icon.icon"
-          class="footerBtn mx-4 my-4 white--text"
-          :href="icon.link"
-          :icon="true"
-          color="button"
-          target="_blank">
-          <v-icon class="" size="24px">{{ icon.icon }}</v-icon>
-          </v-btn>
-        </v-card-text>
-  
-        <v-card-text class="white--text pt-0">
-          Made with Love <v-icon>mdi-heart</v-icon> and VueJS<v-icon>mdi-vuetify</v-icon>
-        </v-card-text>
-  
-        <v-divider></v-divider>
-  
-        <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>Arnaud Cossu</strong>
-        </v-card-text>
-      </v-card>
-    </v-footer>
+        <v-card
+          flat
+          tile
+          class="white--text text-center cardFooter"
+        >
+          <v-card-text>
+            <v-btn
+            v-for="icon in socialLinks"
+            :key="icon.icon"
+            class="footerBtn mx-4 my-4 white--text"
+            :href="icon.link"
+            :icon="true"
+            target="_blank">
+            <v-icon class="" size="24px">{{ icon.icon }}</v-icon>
+            </v-btn>
+          </v-card-text>
+    
+          <v-card-text class="white--text pt-0">
+            Made with Love <v-icon>mdi-heart</v-icon> and VueJS<v-icon>mdi-vuetify</v-icon>
+          </v-card-text>
+        
+          <v-card-text class="white--text">
+            {{ new Date().getFullYear() }} — <strong>Cossu Arnaud</strong>
+          </v-card-text>
+        </v-card>
+      </v-footer>
+    </div>
   </template>
   
   <script>
@@ -53,6 +51,27 @@
   </script>
 
 <style scoped>
+.footerDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
 
+.cardFooter{
+  width: 90%;
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 1em;
+}
+
+.footerBtn{
+    background: rgba(255, 255, 255, 0.21);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
 
 </style>  

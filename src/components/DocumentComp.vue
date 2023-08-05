@@ -1,6 +1,6 @@
 <template>
     <div id="docs" style="scroll-margin-top: 80px;" class="d-flex align-center justify-center">
-        <v-card id="documents" class="elevation-10" color="secondary">
+        <v-card id="documents" class="elevation-6 docCard">
             <v-container class="d-flex align-center justify-center docContainer">
                 <div class="text-center">
                     <h1>Documents</h1>
@@ -15,19 +15,22 @@
                     >
                     <template v-slot:activator="{ props }">
                         <v-btn
-                        color="indigo"
+                        class="docBtn"
                         v-bind="props"
                         rounded
                         >
                         Voir les documents
                         </v-btn>
                     </template>
-                    <v-card color="primary">
-                        <v-card-title class="mt-4">
-                        <span class="dialogText">Téléchargement des documents</span>
+                    <v-card class="docContainerCard">
+                        
+                        <v-card-title class="mt-4 docTitle">
+                            <div class="downloadTitle">
+                                <div class="dialogText pa-2">Téléchargement des documents</div>
+                            </div>
                         </v-card-title>
                         <v-card-text>
-                            <v-card color="secondary" v-for="docs in documentsInfos" :key="docs" elevation="8"
+                            <v-card v-for="docs in documentsInfos" :key="docs" elevation="8"
                                 class="mx-auto my-4 cardDoc"
                                 width="96%"
                                 :prepend-avatar="docs.logoSrc">
@@ -39,15 +42,14 @@
                                     {{ docs.body }}
                                 </v-card-text>
                                 <v-card-actions style="display: flex; justify-content: flex-end;">
-                                    <v-btn class="my-2 mx-2" variant="elevated" rounded="pill" color="primary" elevation="5" :href="docs.pdf_url" :download="docs.pdfName">Télécharger</v-btn>
+                                    <v-btn class="my-2 mx-2 downDoc" variant="elevated" rounded="pill" elevation="5" :href="docs.pdf_url" :download="docs.pdfName">Télécharger</v-btn>
                                 </v-card-actions>
                             </v-card>
                         </v-card-text>
                         <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn
-                            color="secondary"
-                            class="my-2 mx-2"
+                            class="my-2 mx-2 docBtn"
                             variant="elevated"
                             rounded="pill"
                             @click="dialog = false"
@@ -112,8 +114,57 @@ export default {
 
 <style scoped>
 
+.docTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.downloadTitle{
+    transition: 0.8s ease-in-out;
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    width: 70%;
+    border-radius: 1em;
+}
+.downDoc{
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.docBtn{
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.docContainerCard{
+    background: rgb(102, 5, 121);
+    background: linear-gradient(to top left, rgb(125, 0, 96), rgba(0, 0, 0, 0), rgb(24, 0, 75)), linear-gradient(to top right, rgb(121, 57, 0), rgba(255, 153, 150, 0), rgb(76, 0, 76)) rgb(76, 0, 86);
+    position:relative;
+}
+
+.docCard{
+    transition: 0.8s ease-in-out;
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
 .docContainer{
     margin-top: 3vh;
+}
+
+#docs{
+    margin-bottom: 10vh;
 }
 
 
@@ -125,6 +176,11 @@ export default {
 }
 .cardDoc{
     border-radius: 2em;
+    transition: ease-in-out 0.5s;
+    background: rgba(255, 255, 255, 0.21);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 .expensions{
     border-radius: 20px;
@@ -133,6 +189,7 @@ export default {
 .dialogText{
     font-size: 1.4em;
     font-family: 'Public Sans', sans-serif;
+    text-align: center;
 }
 
 @media only screen and (max-width: 990px) {

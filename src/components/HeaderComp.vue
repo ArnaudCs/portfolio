@@ -1,7 +1,7 @@
 <template>
-  <v-navigation-drawer color="primary" v-model="drawer" temporary class="drawer" style="width: 100%; opacity: 0.95; padding-top: 15vh;">
+  <v-navigation-drawer color="#595959" v-model="drawer" temporary class="drawer" style="width: 100%; opacity: 0.95; padding-top: 15vh;">
     <v-list class="drawer" nav v-for="(menu, index) in menus" :key="index">
-      <v-list-item @click="drawer = null" :href=menu.link>
+      <v-list-item @click="drawer = null" :href=menu.link v-smooth-scroll>
         <v-list-item-title class="mobileLinks" @click="drawer = null">{{menu.title}}</v-list-item-title>
       </v-list-item>
     </v-list>
@@ -12,41 +12,19 @@
   <v-app-bar
     app
     elevation="0"
-    color="transparent"
     elevate-on-scroll
-    class="appBar">
-  
+    class="appBar"
+    v-bind:class="{ appBarScroll: isScrolled }">
+
     <v-toolbar-title v-if="windowWidth> 350" class="logo"><a href="#home" class="colorLogo">Arnaud Cossu</a></v-toolbar-title>
     <v-spacer></v-spacer>
     <template v-if="windowWidth > 945">
       <v-list class="d-flex align-center my-list" style="background-color: secondary;">
-        <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link @click="scrollTo(menu.link)">
+        <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link v-smooth-scroll class="menuItem">
           <v-list-item-title class="menus">{{menu.title}}</v-list-item-title>
-        </v-list-item>
-        <v-list-item>
-          <v-switch v-model="ex11"
-              true-icon="mdi-white-balance-sunny"
-              false-icon="mdi-weather-night"
-              value="secondary"
-              hide-details
-              class="ml-2"
-              inset
-              @click="toggleTheme">
-              <v-icon>mdi-magnify</v-icon>
-          </v-switch> 
         </v-list-item>
       </v-list>
     </template>
-    <div id="container" v-if="windowWidth <= 945" style="display: flex; justify-content: flex-end;">
-      <v-switch
-        true-icon="mdi-white-balance-sunny"
-        false-icon="mdi-weather-night"
-        value="secondary"
-        hide-details
-        inset
-        @click="toggleTheme">
-      </v-switch>
-    </div>
     <v-menu v-if="windowWidth <= 960" right>
       <template v-slot:activator="{ on }">
         <v-btn color="primary" v-bind="on" @click.stop="drawer = !drawer">
@@ -54,7 +32,7 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link @click="scrollTo(menu.link)">
+        <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link>
           <v-list-item-title>{{menu.title}}</v-list-item-title>
         </v-list-item> 
       </v-list>
@@ -70,7 +48,7 @@
 
       return {
         theme,
-        toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+        toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark',
       }
     },
     data() {
@@ -78,6 +56,7 @@
         drawer: null,
         windowWidth: 0,
         ex11: 'enable',
+        isScrolled: false,
         menus: [
           {
             title: 'Accueil',
@@ -108,38 +87,74 @@
       }
     },
     mounted() {
-      window.addEventListener('resize', this.getWindowWidth)
-      this.getWindowWidth()
+      window.addEventListener('resize', this.getWindowWidth);
+      window.addEventListener('scroll', this.handleScroll);
+
+      this.getWindowWidth();
     },
     beforeUnmount() {
-      window.removeEventListener('resize', this.getWindowWidth)
+      window.removeEventListener('resize', this.getWindowWidth);
+      window.removeEventListener('scroll', this.handleScroll);
     },
     methods: {
       getWindowWidth() {
         this.windowWidth = window.innerWidth
       },
-      scrollTo(target) {
-        const element = document.querySelector(target);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
+      handleScroll() {
+        this.isScrolled = (window.scrollY > 0);
+        console.log(this.isScrolled);
+      },
     }
   }
 </script>
 
-<style scoped>
+<style scoped >
 @import url('https://fonts.cdnfonts.com/css/oswald-4');
 @import url('https://fonts.cdnfonts.com/css/gotham-rounded');
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
 .mobileLinks{
   font-size: 1.5rem;
   line-height: 50px;
   font-family: 'Gotham Rounded', sans-serif;
 }
 
+.menuItem{
+  transition: 0.1s ease-in-out;
+  border-radius: 2em;
+}
+
+.menuItem:hover{
+  transition: 0.8s ease-in-out;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
 .appBar{
   display: block;
   position: relative;
+  background-color: transparent;
+  transition: ease-in-out 0.5s;
+}
+
+.appBarScroll{
+  display: block;
+  position: relative;
+  transition: 0.2s ease-in-out;
+  background: rgba(156, 156, 156, 0.38);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  transition: ease-in-out 0.5s;
 }
 
 .closeBtn{
@@ -185,6 +200,5 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  backdrop-filter: blur(10px);
 }
 </style>  

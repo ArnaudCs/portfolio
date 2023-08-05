@@ -1,5 +1,5 @@
 <template>
-    <v-container id="projects" class="pt-15">
+    <v-container id="projects">
       <div class="projectTitle d-flex align-center justify-center mb-7">
         <h1>Projets</h1>
       </div>
@@ -17,15 +17,11 @@
             :languages="card.languages"
             :link="card.link"
             class="elevation-5 cardProject"
-            color="secondary"
           >
           </CardProject>
         </v-col>
-        <v-col
-          cols="12" sm="12" md="12"
-          style="display: flex; justify-content: center; align-items: center;"
-        >
-            <v-btn icon="mdi-menu" size="x-large"></v-btn>
+        <v-col cols="12" sm="12" md="12" style="display: flex; justify-content: center; align-items: center;">
+            <v-btn icon="mdi-menu" size="x-large" class="moreProjectButton" @click="moreProjectDialog = true"></v-btn>
         </v-col>
       </v-row>
     </v-container>
@@ -42,45 +38,47 @@
         
         data() {
             return {
-            cards: [
-                { title: 'Suivi Achat Revente', 
-                body: 'Site web de gestion d\'achat revente avec suivi et statistiques de vente. Création de comptes personnels.', 
-                src: "https://i.ibb.co/3zLYV2k/notebook-mockup-on-desk.png", 
-                languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, 
-                { name: 'BootStrap', icon: '/icons/bootstrap.svg' }, { name: 'SQL', icon: '/icons/sql.png' },
-                { name: 'JS', icon: '/icons/javascript.svg' }],
-                link: "https://cashboard.arnaudcs.repl.co/index.php"},
+              cards: [
+                  { title: 'Application FayApp',
+                  body: 'Web Application de gestion de chantiers et de livraisons. Suivi des livraisons, des BDL, avec planning dynamique', 
+                  src: "https://i.ibb.co/SQbvPX3/Display-min.png", 
+                  languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, 
+                  { name: 'VueJS', icon: '/icons/Vue.png' }, { name: 'SQL', icon: '/icons/sql.png' },
+                  { name: 'JS', icon: '/icons/javascript.svg' }],
+                  link:"https://github.com/ArnaudCs/Projects/tree/main/TickityTacTow-main"},
 
-                { title: 'Application Metrix', 
-                body: 'Application simple de calul de prorata et de réductions, IOS et Android, disponible sur le Play Store.', 
-                src: "https://i.ibb.co/frXw7Vj/Scene.png", 
-                languages: [{ name: 'React Native', icon: '/icons/react.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, { name: 'HTML', icon: '/icons/html.svg' }, { name: 'JS', icon: '/icons/javascript.svg' }],
-                link: "https://github.com/ArnaudCs/Metrix"},
+                  { title: 'Suivi Achat Revente', 
+                  body: 'Site web de gestion d\'achat revente avec suivi et statistiques de vente. Création de comptes personnels.', 
+                  src: "https://i.ibb.co/3zLYV2k/notebook-mockup-on-desk.png", 
+                  languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, 
+                  { name: 'BootStrap', icon: '/icons/bootstrap.svg' }, { name: 'SQL', icon: '/icons/sql.png' },
+                  { name: 'JS', icon: '/icons/javascript.svg' }],
+                  link: "https://cashboard.arnaudcs.repl.co/index.php"},
 
-                { title: 'Jeux IOS Morpion',
-                body: 'Jeu du morpion avec IA (simple), avec différents thèmes. Version modifiée et dépréciée (installation avec XCode)', 
-                src: "https://i.ibb.co/KmMsTk4/Morpion-Mockup.png", 
-                languages: [{ name: 'Swift', icon: '/icons/swift.svg' }],
-                link:"https://github.com/ArnaudCs/Projects/tree/main/TickityTacTow-main"},
+                  { title: 'Application Metrix', 
+                  body: 'Application simple de calul de prorata et de réductions, IOS et Android, disponible sur le Play Store.', 
+                  src: "https://i.ibb.co/frXw7Vj/Scene.png", 
+                  languages: [{ name: 'React Native', icon: '/icons/react.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, { name: 'HTML', icon: '/icons/html.svg' }, { name: 'JS', icon: '/icons/javascript.svg' }],
+                  link: "https://metrixapp.my.canva.site/"},
 
-                { title: 'Analyseur Mail', 
-                body: 'Analyseur avec statistique sur corpus de mails dans les envois entre chercheurs, calculs des fréquences d\'envoi et graphiques.', 
-                src: "https://i.ibb.co/tBLHVXS/Analyseur-De-Mail.png", 
-                languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' },{ name: 'python', icon: '/icons/python.svg' }],
-                link: "https://github.com/Gaiko19/INTER2-HUT"},
+                  { title: 'Analyseur Mail', 
+                  body: 'Analyseur avec statistique sur corpus de mails dans les envois entre chercheurs, calculs des fréquences d\'envoi et graphiques.', 
+                  src: "https://i.ibb.co/tBLHVXS/Analyseur-De-Mail.png", 
+                  languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' },{ name: 'python', icon: '/icons/python.svg' }],
+                  link: "https://github.com/Gaiko19/INTER2-HUT"},
 
-                { title: 'Maquettes Figma', 
-                body: 'Réalisation de différentes maquettes d\'application, en utilisant Figma.', 
-                src: "https://i.ibb.co/1q30BXn/iphone-multiple-screens-mockup-1.png", 
-                languages: [{ name: 'Figma', icon: '/icons/figma.svg' }],
-                link: "https://www.figma.com/file/KybxNVg1nLvRCOEjTg7RdT/interim?t=1DPIZamu17feSRa5-6"},
+                  { title: 'Maquettes Figma', 
+                  body: 'Réalisation de différentes maquettes d\'application, en utilisant Figma.', 
+                  src: "https://i.ibb.co/1q30BXn/iphone-multiple-screens-mockup-1.png", 
+                  languages: [{ name: 'Figma', icon: '/icons/figma.svg' }],
+                  link: "https://www.figma.com/file/KybxNVg1nLvRCOEjTg7RdT/interim?t=1DPIZamu17feSRa5-6"},
 
-                { title: 'Calculatrice React', 
-                body: 'Caclulatrice avec mode Dark Theme en React Native', 
-                src: "https://i.ibb.co/GJx6LZn/two-standing-smartphones-mockup.png", 
-                languages: [{ name: 'React Native', icon: '/icons/react.svg' }],
-                ink: "https://github.com/ArnaudCs/Projects/tree/main/React_Calculatrice"},
-            ],
+                  { title: 'Calculatrice React', 
+                  body: 'Caclulatrice avec mode Dark Theme en React Native', 
+                  src: "https://i.ibb.co/GJx6LZn/two-standing-smartphones-mockup.png", 
+                  languages: [{ name: 'React Native', icon: '/icons/react.svg' }],
+                  link: "https://github.com/ArnaudCs/Projects/tree/main/React_Calculatrice"},
+              ],
             };
         },
 
@@ -89,13 +87,8 @@
 
 <style scoped>
 
-.seeMoreDiv{
-    border-radius: 1em; 
-    aspect-ratio: 1; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    flex-direction: column;
+.moreProjectDialogStyle{
+    width: 100%;
 }
 
 .projectTitle{
@@ -105,8 +98,19 @@
     margin-top: 4vh;
 }
 
+.moreProjectButton{
+    background: rgba(255, 255, 255, 0.21);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
 .cardProject{
     transition: ease-in-out 0.5s;
+    background: rgba(255, 255, 255, 0.21);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .cardProject:hover{
