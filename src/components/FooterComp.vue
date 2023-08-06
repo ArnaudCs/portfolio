@@ -15,7 +15,7 @@
             <v-btn
             v-for="icon in socialLinks"
             :key="icon.icon"
-            class="footerBtn mx-4 my-4 white--text"
+            class="footerBtn my-4 white--text"
             :href="icon.link"
             :icon="true"
             target="_blank">
@@ -59,7 +59,7 @@
 }
 
 .cardFooter{
-  width: 90%;
+  width: 40%;
   background: rgba(255, 255, 255, 0.13);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -72,6 +72,27 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
+@media only screen and (max-width: 950px) {
+  .footerBtn{
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  
+  .cardFooter{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .footerBtn{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+
+}
 </style>  

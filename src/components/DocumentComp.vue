@@ -26,7 +26,7 @@
                         
                         <v-card-title class="mt-4 docTitle">
                             <div class="downloadTitle">
-                                <div class="dialogText pa-2">Téléchargement des documents</div>
+                                <div class="dialogText pa-2">Documents</div>
                             </div>
                         </v-card-title>
                         <v-card-text>
