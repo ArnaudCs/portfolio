@@ -26,7 +26,7 @@
       </v-row>
     </v-container>
 
-    <v-snackbar v-model="soon" color="info" :timeout="2000" location="bottom">
+    <v-snackbar v-model="soon" :timeout="1000" location="bottom" color="purple">
         <p style="text-align: center;">Bientôt disponible<v-icon icon="mdi-clock" class="ml-1"></v-icon></p>
     </v-snackbar>
 </template>
@@ -106,6 +106,7 @@
     font-weight: 900;
     margin-top: 4vh;
 }
+
 
 .moreProjectButton{
     background: rgba(255, 255, 255, 0.21);
