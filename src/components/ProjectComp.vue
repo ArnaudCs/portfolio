@@ -21,10 +21,14 @@
           </CardProject>
         </v-col>
         <v-col cols="12" sm="12" md="12" style="display: flex; justify-content: center; align-items: center;">
-            <v-btn icon="mdi-menu" size="x-large" class="moreProjectButton" @click="moreProjectDialog = true"></v-btn>
+            <v-btn icon="mdi-menu" size="x-large" class="moreProjectButton" @click="soon = true"></v-btn>
         </v-col>
       </v-row>
     </v-container>
+
+    <v-snackbar v-model="soon" color="info" :timeout="2000" location="bottom">
+        <p style="text-align: center;">Bientôt disponible<v-icon icon="mdi-clock" class="ml-1"></v-icon></p>
+    </v-snackbar>
 </template>
   
   <script>
@@ -38,6 +42,7 @@
         
         data() {
             return {
+              soon: false,
               cards: [
                   { title: 'Application FayApp',
                   body: 'Web Application de gestion de chantiers et de livraisons. Suivi des livraisons, des BDL, avec planning dynamique', 
