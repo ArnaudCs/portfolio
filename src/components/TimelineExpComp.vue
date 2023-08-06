@@ -131,6 +131,11 @@
 
 <style>
 
+
+#experiences{
+  scroll-margin-top: 50px;
+}
+
 .timelineCard{
   border-radius: 1em;
   transition: 0.4s ease-in-out;

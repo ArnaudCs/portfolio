@@ -87,6 +87,10 @@
 
 <style scoped>
 
+#projects{
+  scroll-margin-top: 50px;
+}
+
 .moreProjectDialogStyle{
     width: 100%;
 }

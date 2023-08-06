@@ -3,18 +3,22 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
-import VueSmoothScroll from 'vue3-smooth-scroll'
-//import VueGtag from 'vue-gtag';
+import { createRouter, createWebHistory } from 'vue-router';
+import MoreProject from './components/MoreProjects.vue'
 
 loadFonts()
 
-/* Vue.use(VueGtag, {
-  config: { id: "G-5NTELR7JVE"}
-}); */
+const routes = [
+  { path: '/projects', component: MoreProject },
+];
 
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+});
 
 createApp(App)
   .use(vuetify)
-  .use(VueSmoothScroll)
+  .use(router)
   .mount('#app')
 

@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer color="#595959" v-model="drawer" temporary class="drawer" style="width: 100%; opacity: 0.95; padding-top: 15vh;">
     <v-list class="drawer" nav v-for="(menu, index) in menus" :key="index">
-      <v-list-item @click="drawer = null" :href=menu.link v-smooth-scroll>
+      <v-list-item @click="drawer = null" :href=menu.link>
         <v-list-item-title class="mobileLinks" @click="drawer = null">{{menu.title}}</v-list-item-title>
       </v-list-item>
     </v-list>
@@ -20,7 +20,7 @@
     <v-spacer></v-spacer>
     <template v-if="windowWidth > 945">
       <v-list class="d-flex align-center my-list" style="background-color: secondary;">
-        <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link v-smooth-scroll class="menuItem">
+        <v-list-item link v-for="(menu, index) in menus" :key="index" :href=menu.link class="menuItem">
           <v-list-item-title class="menus">{{menu.title}}</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -41,14 +41,9 @@
 </template>
   
 <script>
-  import { useTheme } from 'vuetify'
   export default {
     setup () {
-      const theme = useTheme()
-
       return {
-        theme,
-        toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark',
       }
     },
     data() {
@@ -112,7 +107,7 @@
 @import url('https://fonts.cdnfonts.com/css/oswald-4');
 @import url('https://fonts.cdnfonts.com/css/gotham-rounded');
 
-.smooth-scroll {
+html{
   scroll-behavior: smooth;
 }
 
@@ -155,6 +150,7 @@
   backdrop-filter: blur(7.5px);
   -webkit-backdrop-filter: blur(7.5px);
   transition: ease-in-out 0.5s;
+
 }
 
 .closeBtn{

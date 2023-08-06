@@ -1,5 +1,5 @@
 <template>
-    <div id="docs" style="scroll-margin-top: 80px;" class="d-flex align-center justify-center">
+    <div id="docs" class="d-flex align-center justify-center">
         <v-card id="documents" class="elevation-6 docCard">
             <v-container class="d-flex align-center justify-center docContainer">
                 <div class="text-center">
@@ -70,6 +70,7 @@
 </template>
 
 <script>
+
 export default {
     name: "DocumentComp",
     components: {
@@ -113,6 +114,10 @@ export default {
     </script>
 
 <style scoped>
+
+#docs{
+    scroll-margin-top: 50px;
+}
 
 .docTitle{
     display: flex;
