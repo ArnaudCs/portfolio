@@ -129,8 +129,6 @@ export default {
     transition: 0.8s ease-in-out;
     background: rgba(255, 255, 255, 0.22);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
     width: 70%;
     border-radius: 1em;
 }
@@ -138,16 +136,12 @@ export default {
     background: rgba(255, 255, 255, 0.02);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
 }
 
 .docBtn{
     background: rgba(255, 255, 255, 0.22);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
 }
 
 .docContainerCard{
@@ -160,8 +154,6 @@ export default {
     transition: 0.8s ease-in-out;
     background: rgba(255, 255, 255, 0.22);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
 }
 
 .docContainer{
@@ -184,8 +176,6 @@ export default {
     transition: ease-in-out 0.5s;
     background: rgba(255, 255, 255, 0.21);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
 }
 .expensions{
     border-radius: 20px;
