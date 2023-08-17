@@ -50,7 +50,15 @@
                   languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, 
                   { name: 'VueJS', icon: '/icons/Vue.png' }, { name: 'SQL', icon: '/icons/sql.png' },
                   { name: 'JS', icon: '/icons/javascript.svg' }],
-                  link:"https://github.com/ArnaudCs/Projects/tree/main/TickityTacTow-main"},
+                  link:"https://fayatapp.com"},
+
+                  { title: 'Site collection jeux vidéos', 
+                  body: 'Site permettant de répertorier ses jeux vidéos afin de suivre sa collection.', 
+                  src: "https://i.ibb.co/5jpbC2w/gamedash-min.png", 
+                  languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, 
+                  { name: 'VueJS', icon: '/icons/Vue.png' }, { name: 'FireBase', icon: '/icons/firebase.png' },
+                  { name: 'JS', icon: '/icons/javascript.svg' }],
+                  link: "https://gamedashdemo.000webhostapp.com/"},
 
                   { title: 'Suivi Achat Revente', 
                   body: 'Site web de gestion d\'achat revente avec suivi et statistiques de vente. Création de comptes personnels.', 
@@ -71,12 +79,6 @@
                   src: "https://i.ibb.co/tBLHVXS/Analyseur-De-Mail.png", 
                   languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' },{ name: 'python', icon: '/icons/python.svg' }],
                   link: "https://github.com/Gaiko19/INTER2-HUT"},
-
-                  { title: 'Maquettes Figma', 
-                  body: 'Réalisation de différentes maquettes d\'application, en utilisant Figma.', 
-                  src: "https://i.ibb.co/1q30BXn/iphone-multiple-screens-mockup-1.png", 
-                  languages: [{ name: 'Figma', icon: '/icons/figma.svg' }],
-                  link: "https://www.figma.com/file/KybxNVg1nLvRCOEjTg7RdT/interim?t=1DPIZamu17feSRa5-6"},
 
                   { title: 'Calculatrice React', 
                   body: 'Caclulatrice avec mode Dark Theme en React Native', 
