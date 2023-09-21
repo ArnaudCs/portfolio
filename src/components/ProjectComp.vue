@@ -5,7 +5,7 @@
       </div>
       <v-row>
         <v-col
-          v-for="(card, index) in cards"
+          v-for="(card, index) in sortedData"
           :key="index"
           cols="12" sm="6" md="4"
           class="mb-4"
@@ -16,7 +16,8 @@
             :src="card.src"
             :languages="card.languages"
             :link="card.link"
-            class="elevation-5 cardProject"
+            :isNew="card.isNew"
+            class="cardProject"
           >
           </CardProject>
         </v-col>
@@ -39,55 +40,31 @@
         components: {
             CardProject
         },
-        
+
+        props: {
+          data: {
+            type: Array, 
+            required: true
+          }
+        },
+
         data() {
             return {
               soon: false,
-              cards: [
-                  { title: 'Application FayApp',
-                  body: 'Web Application de gestion de chantiers et de livraisons. Suivi des livraisons, des BDL, avec planning dynamique', 
-                  src: "https://i.ibb.co/SQbvPX3/Display-min.png", 
-                  languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, 
-                  { name: 'VueJS', icon: '/icons/Vue.png' }, { name: 'SQL', icon: '/icons/sql.png' },
-                  { name: 'JS', icon: '/icons/javascript.svg' }],
-                  link:"https://fayatapp.com"},
-
-                  { title: 'Site collection jeux vidéos', 
-                  body: 'Site permettant de répertorier ses jeux vidéos afin de suivre sa collection.', 
-                  src: "https://i.ibb.co/5jpbC2w/gamedash-min.png", 
-                  languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, 
-                  { name: 'VueJS', icon: '/icons/Vue.png' }, { name: 'FireBase', icon: '/icons/firebase.png' },
-                  { name: 'JS', icon: '/icons/javascript.svg' }],
-                  link: "https://gamedashdemo.000webhostapp.com/"},
-
-                  { title: 'Suivi Achat Revente', 
-                  body: 'Site web de gestion d\'achat revente avec suivi et statistiques de vente. Création de comptes personnels.', 
-                  src: "https://i.ibb.co/3zLYV2k/notebook-mockup-on-desk.png", 
-                  languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, 
-                  { name: 'BootStrap', icon: '/icons/bootstrap.svg' }, { name: 'SQL', icon: '/icons/sql.png' },
-                  { name: 'JS', icon: '/icons/javascript.svg' }],
-                  link: "https://cashboard.arnaudcs.repl.co/index.php"},
-
-                  { title: 'Application Metrix', 
-                  body: 'Application simple de calul de prorata et de réductions, IOS et Android, disponible sur le Play Store.', 
-                  src: "https://i.ibb.co/frXw7Vj/Scene.png", 
-                  languages: [{ name: 'React Native', icon: '/icons/react.svg' }, { name: 'CSS', icon: '/icons/css.svg' }, { name: 'HTML', icon: '/icons/html.svg' }, { name: 'JS', icon: '/icons/javascript.svg' }],
-                  link: "https://metrixapp.my.canva.site/"},
-
-                  { title: 'Analyseur Mail', 
-                  body: 'Analyseur avec statistique sur corpus de mails dans les envois entre chercheurs, calculs des fréquences d\'envoi et graphiques.', 
-                  src: "https://i.ibb.co/tBLHVXS/Analyseur-De-Mail.png", 
-                  languages: [{ name: 'HTML', icon: '/icons/html.svg' }, { name: 'CSS', icon: '/icons/css.svg' },{ name: 'python', icon: '/icons/python.svg' }],
-                  link: "https://github.com/Gaiko19/INTER2-HUT"},
-
-                  { title: 'Calculatrice React', 
-                  body: 'Caclulatrice avec mode Dark Theme en React Native', 
-                  src: "https://i.ibb.co/GJx6LZn/two-standing-smartphones-mockup.png", 
-                  languages: [{ name: 'React Native', icon: '/icons/react.svg' }],
-                  link: "https://github.com/ArnaudCs/Projects/tree/main/React_Calculatrice"},
-              ],
+              cards: [],
+              dataCopy: [],
             };
         },
+
+        computed: {
+          sortedData() {
+            // Copiez le tableau data pour éviter de modifier l'original
+            const dataCopy = [...this.data];
+
+            // Triez le tableau copié en fonction de la position en ordre décroissant
+            return dataCopy.sort((a, b) => b.position - a.position);
+          }
+        }
 
     }
   </script>
@@ -117,8 +94,6 @@
 
 .cardProject{
     transition: ease-in-out 0.5s;
-    background: rgba(255, 255, 255, 0.21);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .cardProject:hover{

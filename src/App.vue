@@ -4,8 +4,8 @@
       <LoadingElement v-if="isLoading"/>
       <HeaderComp />
       <BioComp class="intro"/>
-      <ProjectComp />
-      <TimelineExpComp />
+      <ProjectComp :data="projects" />
+      <TimelineExpComp :data="exps" />
       <DocumentCompVue/>
     </v-main>
     <FooterComp />
@@ -21,6 +21,8 @@ import TimelineExpComp from './components/TimelineExpComp.vue';
 import BioComp from './components/BioComp.vue';
 import LoadingElement from './components/LoadingElement.vue';
 //import AboutComp from './components/AboutComp.vue';
+import { getFirestore, collection, query, getDocs, where } from "firebase/firestore";
+
 
 export default {
   name: 'App',
@@ -36,19 +38,68 @@ export default {
   data() {
     return {
       isLoading: true,
+      projects: [],
+      exps: [],
     };
-  },
-  methods: {
   },
   mounted() {
     setTimeout(() => {
       this.isLoading = false;
     }, 2000);
+
+    this.fetchData();
   },
+  methods: {
+    async fetchData() {
+      try {
+        const db = getFirestore();
+        const projectsRef = collection(db, "Projects");
+        const expsRef = collection(db, "Experiences");
+        const queryExpSnapshot = await getDocs(query(expsRef));
+        const querySnapshot = await getDocs(query(projectsRef));
+
+        // Récupérez les données des projets
+        querySnapshot.forEach(async (doc) => {
+          const projectData = doc.data();
+          const projectLanguages = [];
+
+          // Assurez-vous que projectData.languages contient les noms des documents dans la collection "Languages"
+          for (const languageName of projectData.languages) {
+            const languageQuery = query(collection(db, "Languages"), where("id", "==", languageName));
+            const languageQuerySnapshot = await getDocs(languageQuery);
+
+            if (!languageQuerySnapshot.empty) {
+              const languageDoc = languageQuerySnapshot.docs[0];
+              const languageData = languageDoc.data();
+              projectLanguages.push(languageData);
+            }
+          }
+
+          // Ajoutez les langues récupérées au projet
+          projectData.languages = projectLanguages;
+          this.projects.push(projectData);
+        });
+        this.projects.sort((a, b) => b.position - a.position);
+        console.log("Projets", this.projects);
+
+        //récupération des expériences
+        queryExpSnapshot.forEach(async (doc) => {
+          const expData = doc.data();
+          this.exps.push(expData);
+        });
+
+        this.exps.sort((a, b) => b.position - a.position);
+        console.log("Experiences", this.exps);
+      } catch (error) {
+        console.error("Une erreur s'est produite lors de la récupération des données :", error);
+      }
+    },
+  }
 };
 </script>
 
 <style>
+
 .app{
   background: rgb(102, 5, 121);
   background: linear-gradient(to top left, rgb(125, 0, 96), rgba(0, 0, 0, 0), rgb(24, 0, 75)), linear-gradient(to top right, rgb(121, 57, 0), rgba(255, 153, 150, 0), rgb(76, 0, 76)) rgb(76, 0, 86);

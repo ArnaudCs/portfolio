@@ -97,7 +97,6 @@
       },
       handleScroll() {
         this.isScrolled = (window.scrollY > 0);
-        console.log(this.isScrolled);
       },
     }
   }

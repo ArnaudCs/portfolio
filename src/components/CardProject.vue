@@ -1,14 +1,20 @@
 <template>
-    <v-card class="mx-auto roundedCard">
-        <v-img class="projectImages"
-        height="230"
-        :src="src"
-        cover
-        ></v-img>
+    <div class="projectCardStruct">
+        <div class="cardHeader">
+            <div class="cardLabel" v-if="isNew">
+                <div class="newIcon">
+                    <v-icon icon="mdi-star-shooting"></v-icon>
+                </div>
+                <div>
+                    <p style="font-weight: 700;">New !</p>
+                </div>
+            </div>
+            <img class="projectImages" :src="src" alt="projectImage">
+        </div>
 
-        <v-card-title class="my-2">{{ title }}</v-card-title>
+        <div class="cardContent">
+            <p class="cardProjectTitle">{{ title }}</p>
 
-        <v-card-text>
             <v-row
                 style="align=center"
                 class="mx-0">
@@ -29,31 +35,31 @@
                 column
             >
                 <v-chip v-for="language in languages" :key="language">
-                    <v-avatar class="codeIcon"><img class="iconImage" :src="language.icon"></v-avatar>
+                    <v-avatar class="codeIcon" rounded="0"><img class="iconImage" :src="language.icon"></v-avatar>
                     {{ language.name }}
                 </v-chip>
             </v-chip-group>
 
-        </v-card-text>
-        <v-card-actions style="display: flex; justify-content: flex-end;">
-            <v-btn 
-                elevation="3"
-                rounded="pill"
-                variant="elevated"
-                class="mx-2 mb-1 seeProjectBtn"
-                target='_blank'
-                :href="link">
-                Voir le projet
-            </v-btn>
-        </v-card-actions>
-    </v-card>
+            <div style="display: flex; justify-content: flex-end;">
+                <v-btn 
+                    elevation="3"
+                    rounded="pill"
+                    variant="elevated"
+                    class="mt-2 seeProjectBtn"
+                    target='_blank'
+                    :href="link">
+                    Voir le projet
+                </v-btn>
+            </div>
+        </div>
+    </div>
   </template>
   
   <script>
     export default {
         name: "CardProject",
 
-        props: ['title', 'body', 'src', 'languages', 'link'],
+        props: ['title', 'body', 'src', 'languages', 'link', 'isNew'],
     
         data(){
             return {
@@ -65,13 +71,67 @@
 
   <style scoped>
 
+    .cardLabel{
+        transform: translateY(1em) translateX(-0.7em); 
+        padding: 0.5em;
+        position: absolute; 
+        z-index: 60;
+        background-color: rgb(201, 117, 7);
+        display: flex;
+        flex-direction: row;
+        width: 30%;
+        border-radius: 0.7em;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.9;
+    }
+
+    .cardHeader{
+        display: flex;
+        position: relative;
+    }
+
+    .newIcon{
+        margin-right: 0.5em;
+    }
+
+    .cardProjectTitle{
+        font-size: 1.3em;
+        font-weight: 600;
+        margin-bottom: 0.5em;
+        margin-bottom: 1em;
+    }
+
+    .projectCardStruct{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cardContent{
+        transform: translateY(-2em);
+        position: relative;
+        z-index: 30;
+        width: 95%;
+        padding: 3em 1em 1em 1em;
+        background: rgba(255, 255, 255, 0.21);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 1.5em;
+    }
+
     .seeProjectBtn{
         background: rgba(255, 255, 255, 0.02);
         border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     }
     .projectImages{
-        object-fit: none !important;
+        object-fit: cover !important;
+        border-radius: 1.5em;
+        width: 100%;
+        aspect-ratio: 16/9;
+        position: relative;
+        z-index: 40;
     }
 
     .iconImage{
