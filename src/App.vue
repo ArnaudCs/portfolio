@@ -43,10 +43,6 @@ export default {
     };
   },
   mounted() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 2000);
-
     this.fetchData();
   },
   methods: {
@@ -80,7 +76,6 @@ export default {
           this.projects.push(projectData);
         });
         this.projects.sort((a, b) => b.position - a.position);
-        console.log("Projets", this.projects);
 
         //récupération des expériences
         queryExpSnapshot.forEach(async (doc) => {
@@ -89,7 +84,8 @@ export default {
         });
 
         this.exps.sort((a, b) => b.position - a.position);
-        console.log("Experiences", this.exps);
+
+        this.isLoading = false;
       } catch (error) {
         console.error("Une erreur s'est produite lors de la récupération des données :", error);
       }
