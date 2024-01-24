@@ -4,67 +4,61 @@
             <v-container class="d-flex align-center justify-center docContainer">
                 <div class="text-center">
                     <h1>Documents</h1>
-                    <h3 class="pt-2 docText">Ici sont disponibles tous les documents numérisées utiles et obtenus lors de mon parcours</h3>
+                    <h2 class="pt-2 docText">Ici sont disponibles tous les documents numérisées utiles et obtenus lors de mon parcours</h2>
                 </div>
             </v-container>
-            <v-container class="d-flex align-center justify-center docContainer">
-                <v-row justify="center">
-                    <v-dialog
-                    v-model="dialog"
-                    width="1000"
-                    >
-                    <template v-slot:activator="{ props }">
-                        <v-btn
-                        class="docBtn"
-                        v-bind="props"
-                        rounded
-                        >
-                        Voir les documents
-                        </v-btn>
-                    </template>
-                    <v-card class="docContainerCard">
-                        
-                        <v-card-title class="mt-4 docTitle">
-                            <div class="downloadTitle">
-                                <div class="dialogText pa-2">Documents</div>
-                            </div>
-                        </v-card-title>
-                        <v-card-text>
-                            <v-card v-for="docs in documentsInfos" :key="docs" elevation="8"
-                                class="mx-auto my-4 cardDoc"
-                                width="96%"
-                                :prepend-avatar="docs.logoSrc">
-                                <template v-slot:title>
-                                    {{ docs.title }}
-                                </template>
 
+            <v-card class="documentWindow" elevation="0">
+                <v-tabs v-model="tab" align-tabs="center">
+                    <v-tab v-for="(tabName, index) in ['Formation', 'Langage', 'Autre']" :key="index" :value="tabName">{{ tabName }}</v-tab>
+                </v-tabs>
+
+                <v-card-text>
+                    <v-window v-model="tab" >
+                        <v-window-item value="Formation">
+                            <v-card v-for="doc in documentsUniv" :key="doc.title" elevation="8" class="mx-auto my-4 cardDoc" width="96%" :prepend-avatar="doc.logoSrc">
+                                <template v-slot:title>
+                                    {{ doc.title }}
+                                </template>
                                 <v-card-text>
-                                    {{ docs.body }}
+                                    {{ doc.body }}
                                 </v-card-text>
                                 <v-card-actions style="display: flex; justify-content: flex-end;">
-                                    <v-btn class="my-2 mx-2 downDoc" variant="elevated" rounded="pill" elevation="5" :href="docs.pdf_url" :download="docs.pdfName">Télécharger</v-btn>
+                                    <v-btn class="my-2 mx-2 downDoc" variant="elevated" rounded="pill" elevation="5" :href="doc.pdf_url" :download="doc.pdfName">Télécharger</v-btn>
                                 </v-card-actions>
                             </v-card>
-                        </v-card-text>
-                        <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn
-                            class="my-2 mx-2 docBtn"
-                            variant="elevated"
-                            rounded="pill"
-                            @click="dialog = false"
-                        >
-                        <v-tooltip
-                            activator="parent"
-                            location="top"
-                        >J'ai ce qu'il me faut</v-tooltip>
-                            Fermer
-                        </v-btn>
-                        </v-card-actions>
-                    </v-card>
-                    </v-dialog>
-                </v-row>
-            </v-container>
+                        </v-window-item>
+
+                        <v-window-item value="Langage">
+                            <v-card v-for="doc in documentsLang" :key="doc.title" elevation="8" class="mx-auto my-4 cardDoc" width="96%" :prepend-avatar="doc.logoSrc">
+                                <template v-slot:title>
+                                    {{ doc.title }}
+                                </template>
+                                <v-card-text>
+                                    {{ doc.body }}
+                                </v-card-text>
+                                <v-card-actions style="display: flex; justify-content: flex-end;">
+                                    <v-btn class="my-2 mx-2 downDoc" variant="elevated" rounded="pill" elevation="5" :href="doc.pdf_url" :download="doc.pdfName">Télécharger</v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        </v-window-item>
+
+                        <v-window-item value="Autre">
+                            <v-card v-for="doc in documentsOther" :key="doc.title" elevation="8" class="mx-auto my-4 cardDoc" width="96%" :prepend-avatar="doc.logoSrc">
+                                <template v-slot:title>
+                                    {{ doc.title }}
+                                </template>
+                                <v-card-text>
+                                    {{ doc.body }}
+                                </v-card-text>
+                                <v-card-actions style="display: flex; justify-content: flex-end;">
+                                    <v-btn class="my-2 mx-2 downDoc" variant="elevated" rounded="pill" elevation="5" :href="doc.pdf_url" :download="doc.pdfName">Télécharger</v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        </v-window-item>
+                    </v-window>
+                </v-card-text>
+            </v-card>
         </v-card>
     </div>
 </template>
@@ -81,7 +75,25 @@ export default {
             model: 'tab-2',
             showDialog: false,
             dialog: false,
-            documentsInfos: [
+            tab: null,
+            documentsUniv: [
+                {title: 'Licence Informatique', 
+                    body: 'La licence informatique est une formation universitaire de premier cycle qui se déroule en 3 ans. Elle permet d\'acquérir les bases de l\'informatique et de se spécialiser dans un domaine.', 
+                    pdf_url: "/files/LICENCE_COSSU_ARNAUD.pdf",
+                    pdfName: "LICENCE_COSSU_ARNAUD.pdf", 
+                    logoSrc: "https://i.ibb.co/QbKbNW0/logoUM.png"},
+                {title: 'Diplôme du PIX', 
+                    body: 'PIX est un outil permettant d\'évaluer en ligne les compétences numériques des élèves, des étudiants et des stagiaires en formation continue.', 
+                    pdf_url: "/files/PIX_COSSU_ARNAUD.pdf",
+                    pdfName: "PIX_COSSU_ARNAUD.pdf", 
+                    logoSrc: "https://i.ibb.co/gv429K6/logPIX.png"},
+                {title: 'Baccalauréat Scientifique Science de l\'ingénieur', 
+                    body: 'Le baccalauréat scientifique est un diplôme de fin d\'études secondaires générales et technologiques en France, correspondant au niveau 4 du cadre européen des certifications.',
+                    pdf_url: "/files/BAC_COSSU_ARNAUD.pdf",
+                    pdfName: "BAC_COSSU_ARNAUD.pdf", 
+                    logoSrc: "https://i.ibb.co/Tr2md39/Black-and-white-minimalist-jewelry-logo.png"},
+                ],
+            documentsLang: [
                 {title: 'TOEIC', 
                     body: 'Les tests Test of English for International Communication sont des certifications standardisées permettant d\'évaluer le niveau d\'anglais des locuteurs non anglophones à l\'écrit et à l\'oral.', 
                     pdf_url: "/files/TOEIC_COSSU_ARNAUD_2023.pdf", 
@@ -92,16 +104,23 @@ export default {
                     pdf_url: "/files/LANGUAGECERT_COSSU_ARNAUD.pdf",
                     pdfName: "LANGUAGECERT_COSSU_ARNAUD.pdf", 
                     logoSrc: "https://i.ibb.co/60kPNtJ/logo-Lang-Cert.png"},
-                {title: 'Diplôme du PIX', 
-                    body: 'PIX est un outil permettant d\'évaluer en ligne les compétences numériques des élèves, des étudiants et des stagiaires en formation continue.', 
-                    pdf_url: "/files/PIX_COSSU_ARNAUD.pdf",
-                    pdfName: "PIX_COSSU_ARNAUD.pdf", 
-                    logoSrc: "https://i.ibb.co/gv429K6/logPIX.png"},
                 {title: 'DeutscheSprache Diplom', 
                     body: 'La certification d’allemand pour l’obtention du Deutsches Sprachdiplom, est un examen qui permet d’attester un niveau de compétence reconnu dans tout l’espace européen.', 
                     pdf_url: "/files/SPRACHEDIPLOM_COSSU_ARNAUD.pdf",
                     pdfName: "SPRACHEDIPLOM_COSSU_ARNAUD.pdf", 
                     logoSrc: "https://i.ibb.co/Pm7q7rs/logo-Sprache.png"},
+                {title: 'Certification Voltaire', 
+                    body: 'Le Certificat Voltaire est un examen créé en 2010 par le Projet Voltaire. Il est censé permettre d\'attester de son niveau en orthographe et en expression française.', 
+                    pdf_url: "/files/VOLTAIRE_COSSU_ARNAUD.pdf", 
+                    pdfName: "VOLTAIRE_COSSU_ARNAUD.pdf", 
+                    logoSrc: "https://i.ibb.co/mqY8vgh/logocertifvoltaire.png"},
+                ],
+            documentsOther: [
+                {title: 'Diplôme Google Digital Marketing', 
+                    body: 'Le diplôme Google Digital Active est un programme de formation gratuit qui permet d\'acquérir les compétences numériques nécessaires à la réussite professionnelle.',
+                    pdf_url: "/files/ATELIER_GOOGLE_COSSU_ARNAUD.pdf",
+                    pdfName: "ATELIER_GOOGLE_COSSU_ARNAUD.pdf", 
+                    logoSrc: "https://i.ibb.co/V2mq94K/nouveau-logo-google-2015.jpg"},
                 {title: 'Certification Voltaire', 
                     body: 'Le Certificat Voltaire est un examen créé en 2010 par le Projet Voltaire. Il est censé permettre d\'attester de son niveau en orthographe et en expression française.', 
                     pdf_url: "/files/VOLTAIRE_COSSU_ARNAUD.pdf", 
@@ -114,6 +133,10 @@ export default {
     </script>
 
 <style scoped>
+
+.documentWindow{
+    background-color: transparent;
+}
 
 #docs{
     scroll-margin-top: 50px;
@@ -167,9 +190,8 @@ export default {
 
 #documents{
     margin-top: 3vh;
-    width: 60%;
+    width: 90%;
     border-radius: 2em;
-    padding: 1em;
 }
 .cardDoc{
     border-radius: 2em;
@@ -194,12 +216,9 @@ export default {
 }
 
 @media only screen and (max-width: 767px) {
-    #documents{
-        width: 85%;
-    }
 
     .docText{
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .dialogText{

@@ -6,7 +6,7 @@
                 <h4 class="bioText my-5">Etudiant en Master Génie Logiciel à l'université de Montpellier.</h4>
                 <v-container class="d-flex justify-center align-center">
                     <v-btn class="cvBtn" size="x-large" rounded="pill">
-                        <a href="/files/CV_2023_COSSU_ARNAUD.pdf" style="color: white; text-decoration: none;" class="downloadcv" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a>
+                        <a href="/files/CV_2024_COSSU_ARNAUD.pdf" style="color: white; text-decoration: none;" class="downloadcv" download="CV_COSSU_ARNAUD.pdf">Télécharger mon CV</a>
                     </v-btn>
                 </v-container>
                 <a href="#projects" v-smooth-scroll style="text-decoration: none"><v-icon class="arrow-icon" style="cursor: pointer; color: white; margin-top: 8vh; scale: 1.5; rotate: 180deg;">mdi-rocket</v-icon></a>

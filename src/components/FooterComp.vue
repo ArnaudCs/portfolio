@@ -1,7 +1,6 @@
 <template>
     <div class="footerDiv">
       <v-footer
-        dark
         padless id="contact"
         class="d-flex align-center justify-center"
         color="transparent"
@@ -13,6 +12,7 @@
         >
           <v-card-text>
             <v-btn
+            elevation="0"
             v-for="icon in socialLinks"
             :key="icon.icon"
             class="footerBtn my-4 white--text"
@@ -60,16 +60,11 @@
 
 .cardFooter{
   width: 40%;
-  background: rgba(255, 255, 255, 0.13);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 1em;
+  background-color: transparent;
 }
 
 .footerBtn{
-    background: rgba(255, 255, 255, 0.21);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
     margin-left: 1em;
     margin-right: 1em;
 }
