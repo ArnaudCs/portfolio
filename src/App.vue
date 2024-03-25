@@ -5,6 +5,7 @@
       <HeaderComp />
       <BioComp class="intro"/>
       <ProjectComp :data="projects" />
+      <ServiceComp/>
       <TimelineExpComp :data="exps" />
       <DocumentCompVue/>
     </v-main>
@@ -19,6 +20,7 @@ import FooterComp from './components/FooterComp.vue';
 import DocumentCompVue from './components/DocumentComp.vue';
 import TimelineExpComp from './components/TimelineExpComp.vue';
 import BioComp from './components/BioComp.vue';
+import ServiceComp from './components/ServiceComp.vue';
 import LoadingElement from './components/LoadingElement.vue';
 //import AboutComp from './components/AboutComp.vue';
 import { getFirestore, collection, query, getDocs, where } from "firebase/firestore";
@@ -31,6 +33,7 @@ export default {
     ProjectComp,
     FooterComp,
     DocumentCompVue,
+    ServiceComp,
     TimelineExpComp,
     BioComp,
     LoadingElement

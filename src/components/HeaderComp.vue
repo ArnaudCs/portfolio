@@ -64,6 +64,11 @@
             icon: 'mdi-folder',
           },
           {
+            title: 'Services',
+            link: '#services',
+            icon: 'mdi-folder',
+          },
+          {
             title: 'Expériences',
             link: '#experiences',
             icon: 'mdi-briefcase',

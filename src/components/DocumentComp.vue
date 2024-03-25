@@ -1,6 +1,6 @@
 <template>
     <div id="docs" class="d-flex align-center justify-center">
-        <v-card id="documents" class="elevation-6 docCard">
+        <v-card id="documents" class="elevation-0 docCard">
             <v-container class="d-flex align-center justify-center docContainer">
                 <div class="text-center">
                     <h1>Documents</h1>
@@ -175,7 +175,7 @@ export default {
 
 .docCard{
     transition: 0.8s ease-in-out;
-    background: rgba(255, 255, 255, 0.22);
+    background: transparent;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
