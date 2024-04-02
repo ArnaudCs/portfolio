@@ -8,7 +8,7 @@
                 </div>
             </v-container>
 
-            <v-row class="mt-4">
+            <v-row class="mt-4 columnCard">
                 <v-col
                     v-for="(card, index) in data"
                     :key="index"
@@ -18,7 +18,7 @@
                     <div>
                         <div class="priceTagContainer">
                             <div class="priceTagDiv">
-                                13€/h
+                                {{ card.price }}
                             </div>
                         </div>
                         <v-card class="mx-auto cardService">
@@ -114,6 +114,12 @@ export default {
 
 <style scoped>
 
+.columnCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .serviceIcons{
     margin-right: 0.3em;
 }
@@ -154,21 +160,19 @@ export default {
 }
 
 .priceTagDiv{
-    background-color: rgb(201, 117, 7);
-    opacity: 0.9;
+    background-color: rgb(77, 170, 0);  
     border-radius: 0.8em;
-    padding-left: 0.3em;
-    padding-right: 0.3em;
-    padding-top: 0.7em;
-    padding-bottom: 0.7em;
-    width: 30%;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
     transform: translateY(+50%);
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    font-size: 1em;
+    font-size: 1.7em;
 }
 
 .contactButton{
