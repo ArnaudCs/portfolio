@@ -10,33 +10,71 @@
 
             <v-row class="mt-4">
                 <v-col
-                    v-for="(card, index) in cards"
+                    v-for="(card, index) in data"
                     :key="index"
                     cols="12" sm="12" md="4"
                     class="mb-4"
                 >
-                    <v-card class="mx-auto cardService">
-                        <v-img
-                            height="200px"
-                            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                            cover
-                        ></v-img>
+                    <div>
+                        <div class="priceTagContainer">
+                            <div class="priceTagDiv">
+                                13€/h
+                            </div>
+                        </div>
+                        <v-card class="mx-auto cardService">
+                            <v-img
+                                height="200px"
+                                :src=card.src
+                                cover
+                            ></v-img>
 
-                        <v-card-title>
-                            Top western road trips
-                        </v-card-title>
+                            <v-card-title>
+                                {{ card.title }}
+                            </v-card-title>
 
-                        <v-card-subtitle>
-                            1,000 miles of wonder
-                        </v-card-subtitle>
-                        <v-card-text>
-                            I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
-                        </v-card-text>
-                    </v-card>
+                            <v-card-subtitle>
+                                {{ card.subtitle }}
+                            </v-card-subtitle>
+                            <v-card-text>
+                                {{ card.text }}
+
+                                <v-divider class="divider"></v-divider>
+
+                                <div class="locationContainer">
+                                    <v-icon class="serviceIcons">mdi-pin</v-icon> {{ card.location }}
+                                </div>
+
+                                <div class="locationContainer">
+                                    <v-icon class="serviceIcons">mdi-calendar</v-icon> {{ formatDate(card.startDate) }} au {{ formatDate(card.endDate) }}
+                                </div>
+
+                                <div class="locationContainer">
+                                    <v-icon class="serviceIcons">mdi-book-education-outline</v-icon> Séance : {{ card.priceMethod }}
+                                </div>
+
+                                <div class="locationContainer">
+                                    <v-icon class="serviceIcons">mdi-camera-front-variant</v-icon> Visio possible : {{ card.visioAccepted ? 'Oui' : 'Non'}}
+                                </div>
+                            </v-card-text>
+
+                            <v-card-actions class="cardServiceActions">
+                                <v-btn
+                                    elevation="3"
+                                    rounded="pill"
+                                    variant="elevated"
+                                    class="mt-2 seeServiceBtn"
+                                    target='_blank'
+                                    :href="card.actionLink"
+                                >
+                                    En savoir plus
+                                </v-btn>
+                            </v-card-actions>
+                        </v-card>
+                    </div>
                 </v-col>
             </v-row>
 
-            <v-btn variant="elevated" rounded="pill" elevation="5" class="my-7 contactButton">
+            <v-btn variant="elevated" rounded="pill" elevation="5" class="my-7 contactButton" href="mailto:arnaud.cossu@gmail.com?subject=Renseignements Cours Particuliers">
                 <span>Me contacter</span>
                 <v-icon class="ml-2">mdi-send</v-icon>
             </v-btn>
@@ -50,23 +88,88 @@ export default {
     components: {
     },
 
+    props: {
+        data: {
+            type: Array, 
+            required: true
+        }
+    },
+
     data () {
         return {
-                model: 'tab-2',
-                showDialog: false,
-                dialog: false,
-                tab: null,
-                cards: [
-                    { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-                    { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-                    { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
-                ],
-            }
-        },
+        }
+    },
+
+    methods: {
+        formatDate(timestamp) {
+            const date = new Date(timestamp.seconds * 1000); 
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const year = date.getFullYear().toString().slice(-2);
+            return `${day}-${month}-${year}`;
+        }
+    }
 }
 </script>
 
 <style scoped>
+
+.serviceIcons{
+    margin-right: 0.3em;
+}
+
+.divider{
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+.cardServiceActions{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.locationContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0.5em;
+}
+
+.seeServiceBtn{
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.iconImage{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.priceTagContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1;
+}
+
+.priceTagDiv{
+    background-color: rgb(201, 117, 7);
+    opacity: 0.9;
+    border-radius: 0.8em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    width: 30%;
+    transform: translateY(+50%);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1em;
+}
 
 .contactButton{
     background: rgba(255, 255, 255, 0.22);
@@ -80,7 +183,7 @@ export default {
 }
 
 .cardService {
-    border-radius: 2em;
+    border-radius: 1.5em;
     width: 95%;
     background: rgba(255, 255, 255, 0.22);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -88,10 +191,6 @@ export default {
 
 .cardServiceContent {
     background-color: transparent;
-}
-
-.cardServiceImage{
-    max-width: 15%;
 }
 
 .documentWindow{

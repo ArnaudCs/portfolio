@@ -64,7 +64,6 @@
       mounted() {
         window.addEventListener('resize', this.getWindowWidth)
         this.getWindowWidth()
-        console.log("Tableau des expériences", this.data);
       },
       beforeUnmount() {
         window.removeEventListener('resize', this.getWindowWidth)

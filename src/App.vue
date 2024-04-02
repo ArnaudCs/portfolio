@@ -5,7 +5,7 @@
       <HeaderComp />
       <BioComp class="intro"/>
       <ProjectComp :data="projects" />
-      <ServiceComp/>
+      <ServiceComp :data="services"/>
       <TimelineExpComp :data="exps" />
       <DocumentCompVue/>
     </v-main>
@@ -43,6 +43,7 @@ export default {
       isLoading: true,
       projects: [],
       exps: [],
+      services: [],
     };
   },
   mounted() {
@@ -54,8 +55,10 @@ export default {
         const db = getFirestore();
         const projectsRef = collection(db, "Projects");
         const expsRef = collection(db, "Experiences");
+        const serviceRef = collection(db, "Services");
         const queryExpSnapshot = await getDocs(query(expsRef));
         const querySnapshot = await getDocs(query(projectsRef));
+        const queryServiceSnapshot = await getDocs(query(serviceRef));
 
         // Récupérez les données des projets
         querySnapshot.forEach(async (doc) => {
@@ -84,6 +87,12 @@ export default {
         queryExpSnapshot.forEach(async (doc) => {
           const expData = doc.data();
           this.exps.push(expData);
+        });
+
+        //récupération des services
+        queryServiceSnapshot.forEach(async (doc) => {
+          const serviceData = doc.data();
+          this.services.push(serviceData);
         });
 
         this.exps.sort((a, b) => b.position - a.position);
