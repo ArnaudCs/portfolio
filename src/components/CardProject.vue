@@ -1,55 +1,35 @@
 <template>
-    <div class="projectCardStruct">
-        <div class="cardHeader">
-            <div class="cardLabel" v-if="isNew">
-                <div class="newIcon">
-                    <v-icon icon="mdi-star-shooting"></v-icon>
+    <div class="projectCardStruct" @click="handleCardClick">
+        <div class="product-card"
+            :style="{ background: `linear-gradient(${color1}, ${color2})` }">
+            <!-- <div class="cardHeader" style="width: 100%;">    
+                <div class="cardLabel" v-if="isNew" >
+                    <div class="newIcon">
+                        <v-icon icon="mdi-star-shooting"></v-icon>
+                    </div>
+                    <div>
+                        <p class="newtag">New !</p>
+                    </div>
                 </div>
-                <div>
-                    <p style="font-weight: 700;">New !</p>
+            </div> -->
+            <div class="card-content">
+                <div class="titleContainer">
+                    <span class="product-category">{{ category }}</span>
+                    <span class="product-title">{{ title }}</span>
+                    <span class="product-price">{{ body }}</span>
                 </div>
-            </div>
-            <img class="projectImages" :src="src" alt="projectImage">
-        </div>
-
-        <div class="cardContent">
-            <p class="cardProjectTitle">{{ title }}</p>
-
-            <v-row
-                style="align=center"
-                class="mx-0">
-            </v-row>
-
-            <div class="my-4 text-subtitle-1">
-            </div>
-
-            <div style="height: 10vh;">{{ body }}</div>
-
-            <v-divider class="mx-4 my-4"></v-divider>
-
-            <p class="mb-2">Langages utilisés</p>
-
-            <v-chip-group
-                v-model="selection"
-                active-class="deep-purple accent-4 white--text"
-                column
-            >
-                <v-chip v-for="language in languages" :key="language">
-                    <v-avatar class="codeIcon" rounded="0"><img class="iconImage" :src="language.icon"></v-avatar>
-                    {{ language.name }}
-                </v-chip>
-            </v-chip-group>
-
-            <div style="display: flex; justify-content: flex-end;">
-                <v-btn 
-                    elevation="3"
-                    rounded="pill"
-                    variant="elevated"
-                    class="mt-2 seeProjectBtn"
-                    target='_blank'
-                    :href="link">
-                    Voir le projet
-                </v-btn>
+                <img class="product-image" :src="src" alt="Product Image">
+                <div class="chips">
+                    <v-chip-group
+                        active-class="white--text"
+                        column
+                    >
+                        <v-chip v-for="language in languages" :key="language" class="chipElement">
+                            <v-avatar class="codeIcon" rounded="0"><img class="iconImage" :src="language.icon"></v-avatar>
+                            {{ language.name }}
+                        </v-chip>
+                    </v-chip-group>
+                </div>
             </div>
         </div>
     </div>
@@ -59,27 +39,85 @@
     export default {
         name: "CardProject",
 
-        props: ['title', 'body', 'src', 'languages', 'link', 'isNew'],
+        props: ['title', 'body', 'src', 'languages', 'link', 'isNew', 'color1', 'color2', 'category'],
     
         data(){
             return {
                 selection: null,
             }
         },
+
+        methods: {
+            handleCardClick() {
+            window.open(this.link, '_blank');
+            }
+        }
     }
   </script>
 
   <style scoped>
 
+    .titleContainer{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .chips{
+        padding: 0px 20px 20px 20px;
+    }
+
+    .product-card {
+        border-radius: 20px;
+        color: #fff;
+        display: flex;
+        width: 85%;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-content {
+        text-align: center;
+    }
+
+    .product-category {
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        text-align: start;
+    }
+
+    .product-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: start;
+    }
+
+    .product-price {
+        font-size: 18px;
+        margin-bottom: 20px;
+        text-align: start;
+    }
+
+    .product-image {
+        max-width: 100%;
+        max-height: 300px;
+        border-radius: 15px;
+    }
+
     .cardLabel{
-        transform: translateY(1em) translateX(-0.7em); 
+        transform: translateY(1em) translateX(-1em); 
         padding: 0.5em;
         position: absolute; 
         z-index: 60;
         background-color: rgb(201, 117, 7);
         display: flex;
         flex-direction: row;
-        width: 30%;
+        width: 25%;
         border-radius: 0.7em;
         align-items: center;
         justify-content: center;
@@ -89,17 +127,18 @@
     .cardHeader{
         display: flex;
         position: relative;
+        justify-content: flex-end;
+    }
+
+    .newtag{
+        font-size: 1em;
+        font-family: 'Public Sans', sans-serif;
+        font-weight: 700;
+        color: white;
     }
 
     .newIcon{
         margin-right: 0.5em;
-    }
-
-    .cardProjectTitle{
-        font-size: 1.3em;
-        font-weight: 600;
-        margin-bottom: 0.5em;
-        margin-bottom: 1em;
     }
 
     .projectCardStruct{
@@ -109,44 +148,33 @@
         flex-direction: column;
     }
 
-    .cardContent{
-        transform: translateY(-2em);
-        position: relative;
-        z-index: 30;
-        width: 95%;
-        padding: 3em 1em 1em 1em;
-        background: rgba(255, 255, 255, 0.21);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        border-radius: 1.5em;
-    }
-
-    .seeProjectBtn{
-        background: rgba(255, 255, 255, 0.02);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    }
-    .projectImages{
-        object-fit: cover !important;
-        border-radius: 1.5em;
-        width: 100%;
-        aspect-ratio: 16/9;
-        position: relative;
-        z-index: 40;
-    }
-
     .iconImage{
         max-width: 100%;
         max-height: 100%;
-    }
-
-    .roundedCard{
-        border-radius: 2em;
     }
 
     .codeIcon{
         width: 1.5em;
         height: 1.5em;
         margin-right: 0.5em;
+    }
+
+    @media screen and (max-width: 600px) {
+        .product-card {
+            width: 95%;
+        }
+
+        .product-category {
+            font-size: 12px;
+        }
+
+        .product-title {
+            font-size: 22px;
+        }
+
+        .product-price {
+            font-size: 16px;
+        }
     }
     
   </style>  

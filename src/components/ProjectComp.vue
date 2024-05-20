@@ -1,28 +1,33 @@
 <template>
-    <v-container id="projects">
-      <div class="projectTitle d-flex align-center justify-center mb-7">
-        <h1>Projets</h1>
-      </div>
-      <v-row>
-        <v-col
-          v-for="(card, index) in sortedData"
-          :key="index"
-          cols="12" sm="6" md="4"
-          class="mb-4"
-        >
-          <CardProject
-            :title="card.title"
-            :body="card.body"
-            :src="card.src"
-            :languages="card.languages"
-            :link="card.link"
-            :isNew="card.isNew"
-            class="cardProject"
+    <div class="projectContainer">
+      <div id="projects">
+        <div class="projectTitle d-flex align-center justify-center mb-7">
+          <h1>Projets</h1>
+        </div>
+        <v-row>
+          <v-col
+            v-for="(card, index) in sortedData"
+            :key="index"
+            cols="12" sm="12" md="6"
+            class="mb-4"
           >
-          </CardProject>
-        </v-col>
-      </v-row>
-    </v-container>
+            <CardProject
+              :title="card.title"
+              :body="card.body"
+              :src="card.src"
+              :languages="card.languages"
+              :link="card.link"
+              :isNew="card.isNew"
+              :color1="card.color1"
+              :color2="card.color2"
+              :category="card.category"
+              class="cardProject"
+            >
+            </CardProject>
+          </v-col>
+        </v-row>
+      </div>
+    </div>
 </template>
   
   <script>
@@ -67,6 +72,16 @@
   scroll-margin-top: 50px;
 }
 
+.projectContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v-row{
+  margin: 0 !important;
+}
+
 .moreProjectDialogStyle{
     width: 100%;
 }
@@ -78,18 +93,18 @@
     margin-top: 4vh;
 }
 
-
 .moreProjectButton{
     background: rgba(255, 255, 255, 0.21);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .cardProject{
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 0.3s;
 }
 
 .cardProject:hover{
-    scale: 1.05;
+    scale: 1.02;
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 1750px) {
