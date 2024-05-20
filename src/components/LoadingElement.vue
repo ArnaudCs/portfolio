@@ -1,12 +1,12 @@
 <template>
     <div class="loader">
-        <Vue3Lottie :animationData="pac" :height="300" :width="300" />
+        <Vue3Lottie :animationData="animation" class="animationContainer"/>
     </div>
 </template>
   
 <script>
 import { Vue3Lottie } from 'vue3-lottie'
-import pac from '../assets/loading.json'
+import animation from '../assets/loading.json'
 
 export default {
 name: "LoadingElement",
@@ -15,7 +15,7 @@ name: "LoadingElement",
     },
     data() {
         return {
-           pac: pac
+           animation: animation
         };
     },
 };
@@ -23,13 +23,13 @@ name: "LoadingElement",
 
 <style scoped>
 
-.lottie-animation {
-  width: 200px;
-  height: 200px;
+.animationContainer{
+    padding: 13vw;
 }
+
 .loader{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     backdrop-filter: blur(7px);
     display: flex;
     justify-content: center;

@@ -83,7 +83,6 @@
 
     .product-category {
         font-size: 16px;
-        font-weight: bold;
         letter-spacing: 1.5px;
         text-transform: uppercase;
         margin-bottom: 10px;
