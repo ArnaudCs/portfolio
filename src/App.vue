@@ -3,7 +3,7 @@
     <v-main>
       <LoadingElement v-if="isLoading"/>
       <HeaderComp />
-      <BioComp class="intro"/>
+      <BioComp class="intro" :files="fichiers"/>
       <ProjectComp :data="projects" />
       <!-- <ServiceComp :data="services"/> -->
       <TimelineExpComp :data="exps" />
@@ -44,6 +44,7 @@ export default {
       projects: [],
       exps: [],
       services: [],
+      fichiers: []
     };
   },
   mounted() {
@@ -56,9 +57,11 @@ export default {
         const projectsRef = collection(db, "Projects");
         const expsRef = collection(db, "Experiences");
         const serviceRef = collection(db, "Services");
+        const fichiersRefs = collection(db, "Fichiers");
         const queryExpSnapshot = await getDocs(query(expsRef));
         const querySnapshot = await getDocs(query(projectsRef));
         const queryServiceSnapshot = await getDocs(query(serviceRef));
+        const queryFichiersSnapshot = await getDocs(query(fichiersRefs));
 
         // Récupérez les données des projets
         querySnapshot.forEach(async (doc) => {
@@ -93,6 +96,12 @@ export default {
         queryServiceSnapshot.forEach(async (doc) => {
           const serviceData = doc.data();
           this.services.push(serviceData);
+        });
+
+        //récupération des fichiers
+        queryFichiersSnapshot.forEach(async (doc) => {
+          const projectFiles = doc.data();
+          this.fichiers.push(projectFiles);
         });
 
         this.exps.sort((a, b) => b.position - a.position);
